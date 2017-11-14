@@ -4,7 +4,7 @@ Pascalina is a basic calculator in which you can do various operations with two 
 # INSTRUCTIONS
 - Open 'Terminal'
 - Go to the directory where you keep the files
-- Execute: .//Pascalinav0.5.2 (.//Pascalinav + the number of version)
+- Execute: ./Pascalinav0.5.2 (./Pascalinav + the number of version)
 - To execute 'Pascalina', will request you two numbers to carry out the operations
 - Then you can choose the option of the desired operation
 - At the end, you will get the result, and you can perform any other operation
