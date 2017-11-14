@@ -3,6 +3,11 @@ Pascalina is a basic calculator in which you can do various operations with two 
 
 # VERSIONS
 
+## v0.5.2
+- Fix problems and optimize
+- Add colors in the Pascalina, Discover them!
+- Decimals are included in this version, Enjoy them!
+
 ## v0.5
 - Fix problems with 'Square Root'
 - Add new options
@@ -14,3 +19,4 @@ Pascalina is a basic calculator in which you can do various operations with two 
 - To execute 'Pascalina', will request you two numbers to carry out the operations
 - Then you can choose the option of the desired operation
 - At the end, you will get the result, and you can perform any other operation
+
