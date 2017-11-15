@@ -17,11 +17,14 @@ int main(){
     int Opcion;
     double Resultado;
     double n;
+    float numero;
+    float porcentajea;
+    float porcentajeb;
 
     printf("\n");
     system("toilet --gay -fpagga PASCALINA v0.5.7\n\n");
     printf("\n");
-    printf(VERDE "PASCALINA v0.5.7 ~ Versión 'BETA'\n" NORMAL);
+    printf(VERDE "PASCALINA v0.5.7 ~ Versión 'Estable'\n" NORMAL);
     printf("Bienvenido/a a 'Pascalina', la calculadora adivina\n");
     printf("En ella podrás realizar diversas operaciónes con dos números\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -98,17 +101,14 @@ do{
     break;
 
     case 7:
-        float numero;
-        float porcentajea;
-        float porcentajeb;
+
         printf(AZUL "Introducir el primer número deseado: " NORMAL);
         scanf("\n%f", &numero);
         printf(AZUL "Introducir el porcentaje que deseas obtener: " NORMAL);
         scanf("\n%f", &porcentajea);
         porcentajeb = porcentajea /100;
-        float resultado;
-        resultado = numero*porcentajeb;
-        printf("\n El %.2f por ciento de %.2f es %.2f\n\n", porcentajea, numero, resultado);
+        Resultado = numero*porcentajeb;
+        printf("\n El %.2f por ciento de %.2f es %.2f\n\n", porcentajea, numero, Resultado);
         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
     break;
 
