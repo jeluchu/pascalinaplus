@@ -9,7 +9,7 @@ Pascalina is a basic calculator in which you can do various operations with two 
 - Then you can choose the option of the desired operation
 - At the end, you will get the result, and you can perform any other operation
 
-##
+## REQUIREMENT
 It is required to have the 'toilet' complement installed
 - You can install from the terminal with sudo apt-get install toilet
 
