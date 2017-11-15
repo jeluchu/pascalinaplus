@@ -30,7 +30,6 @@ int main(){
     printf("Bienvenido/a a 'Pascalina', la calculadora adivina\n");
     printf("En ella podrás realizar diversas operaciónes con dos números\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-
     printf(AZUL "Introducir el primer número deseado: " NORMAL);
     scanf(" %lf", &op1);
 
@@ -56,7 +55,7 @@ int main(){
 do{
     scanf("%i", &Opcion);
 
-    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
     switch(Opcion) {
     case 0:
