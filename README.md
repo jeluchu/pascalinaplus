@@ -11,6 +11,10 @@ Pascalina is a basic calculator in which you can do various operations with two 
 
 # VERSIONS
 
+## v0.5.7
+- Optimize
+- Add NEW FEATURES: Percentages
+
 ## v0.5.2
 - Fix problems and optimize
 - Add colors in the Pascalina, Discover them!
