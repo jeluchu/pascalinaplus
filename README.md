@@ -15,6 +15,11 @@ It is required to have the 'toilet' complement installed
 
 # VERSIONS
 
+## v0.5.8.2
+- Fix bugs
+- Create a small 'Preloader'
+- Code optimization 'Level 1'
+
 ## v0.5.8
 - Fix bugs and optimize
 - Add NEW FEATURES: Powers; Area and perimeter of a square
