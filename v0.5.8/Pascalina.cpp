@@ -20,13 +20,11 @@ int main(){
     float numero;
     float porcentajea;
     float porcentajeb;
+    double lado, area, perimetro;
 
     printf("\n");
     system("toilet --gay -fpagga PASCALINA v0.5.8\n\n");
-    system("toilet -fpagga  MODO BETA\n\n"); //QUITAR EN LAS ESTABLES
-    system("toilet -fpagga  USALO CON CUIDADO\n\n"); //QUITAR EN LAS ESTABLES
-    printf("\n");
-    printf(VERDE "PASCALINA v0.5.8 ~ Versión 'BETA'\n" NORMAL);
+    printf(VERDE "PASCALINA v0.5.8 ~ Versión 'ESTABLE'\n" NORMAL);
     printf("Bienvenido/a a 'Pascalina', la calculadora adivina\n");
     printf("En ella podrás realizar diversas operaciónes con dos números\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -47,6 +45,7 @@ int main(){
     printf("\t  Pulsa 6 si deseas cambiar los valores\n");
     printf("\t  Pulsa 7 si deseas realizar porcentajes\n");
     printf("\t  Pulsa 8 si deseas realizar potencias\n");
+    printf("\t  Pulsa 9 si deseas saber el área y el perímetro de un cuadrado\n");
     printf("\t  Pulsa 0 si deseas salir\n\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     printf(AZUL "Escoge la opción deseada: " NORMAL);
@@ -126,6 +125,24 @@ do{
             printf(AMARILLO "El resultado de %f^%f es %f\n\n" NORMAL, op1, op2, Resultado);
         }
         break;
+        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    break;
+
+    case 9:
+
+        /* Entrada de datos */
+        printf("Introducir la longitud del lado: ");
+        scanf(" %lf", &lado);
+
+        /* Calculo de datos */
+        area = lado*lado;
+        perimetro = 4*lado;
+
+        /* Salida de datos */
+        printf("El resultado del área es: %.2f\n"
+               "El resultado del perímetro: %.2f\n",
+               area, perimetro);
+
         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     break;
 
