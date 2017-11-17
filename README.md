@@ -1,6 +1,8 @@
 # Pascalina
 Pascalina is a basic calculator in which you can do various operations with two numbers
 
+![Icono GDM](./Fotos/Captura1.png)
+
 # INSTRUCTIONS
 - Open 'Terminal'
 - Go to the directory where you keep the files
@@ -9,11 +11,21 @@ Pascalina is a basic calculator in which you can do various operations with two 
 - Then you can choose the option of the desired operation
 - At the end, you will get the result, and you can perform any other operation
 
+# Enjoy it!
+If you like 'Pascalina', you can give it stars or share it
+If you want to make a request or suggestion for it, please contact me by email; jeluchu@gmail.com
+
 ## REQUIREMENT
 It is required to have the 'toilet' complement installed
 - You can install from the terminal with sudo apt-get install toilet
 
 # VERSIONS
+
+## v0.6
+- Optimize
+- New Menu in 'Square Root', you can use 'Cubic Roots'
+- NEW FEATURES: Trigonometric functions
+- New Menu in Trigonometric functions (sin, cos, tan)
 
 ## v0.5.8.2
 - Fix bugs
