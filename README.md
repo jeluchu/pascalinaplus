@@ -12,8 +12,8 @@ Pascalina is a basic calculator in which you can do various operations with two 
 - At the end, you will get the result, and you can perform any other operation
 
 # Enjoy it!
-If you like 'Pascalina', you can give it stars or share it
-If you want to make a request or suggestion for it, please contact me by email; jeluchu@gmail.com
+- If you like 'Pascalina', you can give it stars or share it
+- If you want to make a request or suggestion for it, please contact me by email; jeluchu@gmail.com
 
 ## REQUIREMENT
 It is required to have the 'toilet' complement installed
