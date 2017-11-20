@@ -2,6 +2,7 @@
 Pascalina is a basic calculator in which you can do various operations with two numbers
 
 ![Icono GDM](./Fotos/Captura1.png)
+![Icono GDM](./Fotos/Captura2.png)
 
 # INSTRUCTIONS
 - Open 'Terminal'
@@ -20,6 +21,9 @@ It is required to have the 'toilet' complement installed
 - You can install from the terminal with sudo apt-get install toilet
 
 # VERSIONS
+
+## v0.7.2
+- Fix problems with version
 
 ## v0.7
 - Fix bugs and optimize
