@@ -21,6 +21,12 @@ It is required to have the 'toilet' complement installed
 
 # VERSIONS
 
+## v0.7
+- Fix bugs and optimize
+- New Options in Principal Menu: Calculate your salary and Areas and perimeters
+- New Menu in 'Areas and perimeters'
+- In Areas and perimeters, you can choose squares, rectangles, parallelograms and triangles
+
 ## v0.6
 - Optimize
 - New Menu in 'Square Root', you can use 'Cubic Roots'
