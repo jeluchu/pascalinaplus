@@ -1,13 +1,12 @@
-/*Este es un proyecto individual de clase, para acceder a él si te gusta,
-  te pediría que pidieras permisos para usar el código de la calculadora
-  al siguiente correo: jeluchu@gmail.com
-  Muchas gracias*/
+//PROGRAMA EN C++
+//AUTOR: JESÚS MARÍA CALDERÓN - GITHUB JELUCHU
+//https://github.com/Jeluchu
+
+//ESTE ES UN PROYECTO QUE COMENCÉ A REALIZAR TRAS APRENDER ALGUNOS CONOCIMIENTOS BÁSICOS DE PROGRAMACIÓN, Y QUE POCO A POCO HA IDO AVANZANDO. POR ESO EN MIS RATOS LIBRES INTENTARÉ REALIZAR MEJORAS A ESTA CALCULADORA. ASÍ QUE POR EL MOMENTO ESTARÁ EN DESARROLLO. SI QUERÉIS SABER MÁS ACERCA DE ESTE PROYECTO O APORTAR ALGUNA IDEA, NO DUDÉIS EN PONEROS EN CONTACTO
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <math.h>
-#include <complex.h>
 #include <unistd.h>
 
 #define ROJO "\x1B[1;31m"
@@ -16,32 +15,19 @@
 #define VERDE "\x1B[1;32m"
 #define AZUL "\x1B[1;34m"
 #define NEGRITA "\x1B[1m"
-#define AZULETE "\x1B[1;36m"
+#define MAGENTA "\x1B[1;35m"
 #define PI "3.14159265"
-//#define G "6,67*10
 
 int main(){
 
-    double op1, op2, Resultado, n, lado, area, perimetro, x, s, c, t, b, h, e, i, o, ladoa, ladob, diaM, diam;
+    double op1, op2, Resultado, n, lado, area, perimetro, x, s, c, t, b, h, e, i, o, ladoa, ladob;
     int Opcion, Opcion2, Opcion3, HorasTrabajdas;
     float numero, porcentajea, porcentajeb, PrecioHora, sueldo;
-    time_t tiempo = time(0);
-    struct tm *tlocal = localtime(&tiempo);
-
-    char output[128];
-    strftime(output, 128, "%d/%m/%y a las %H:%M:%S", tlocal);
-
 
     printf("\n");
-    system("toilet --gay -fpagga PASCALINA v0.8\n\n");
-    printf("\n");
+    system("toilet --gay -fpagga PASCALINA v0.7.2\n\n");
     sleep(2);
-    printf(AMARILLO "Te damos la bienvenida ");
-    printf(getenv("USER"));
-    printf("\n" NORMAL);
-    printf(VERDE "PASCALINA v0.8 ~ Versión 'ESTABLE'\n" NORMAL);
-    printf(AZULETE "Iniciada el %s\n" NORMAL,output);
-    printf("---------------------------------------------------------\n");
+    printf(VERDE "PASCALINA v0.7.2 ~ Versión 'ESTABLE'\n" NORMAL);
     printf("Bienvenido/a a 'Pascalina', la calculadora adivina\n");
     printf("En ella podrás realizar diversas operaciónes con dos números\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -53,7 +39,7 @@ int main(){
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
     fflush(stdin);
 
-    printf(VERDE "\t¿Qué operación deseas realizar?\n" NORMAL);
+    printf(MAGENTA "\t¿Qué operación deseas realizar?\n" NORMAL);
     printf("\t  Pulsa 1 si deseas sumar\n"
            "\t  Pulsa 2 si deseas restar\n"
            "\t  Pulsa 3 si deseas multiplicar\n"
@@ -76,8 +62,6 @@ do{
 
     switch(Opcion) {
     case 0:
-           /*printf(ROJO "¿Estás seguro de querer salir?" NORMAL);*/
-
            printf(NEGRITA "Gracias por usar 'Pascalina', esperamos que te haya sido de utilidad\n"
                           "Muchas gracias\n\n");
            printf("¡HASTA PRONTO!\n\n" NORMAL);
@@ -108,7 +92,7 @@ do{
     break;
 
     case 5: /* Raíz Cuadrada */
-        printf(VERDE "\t¿Qué tipo de raíz deseas?\n" NORMAL);
+        printf(MAGENTA "\t¿Qué tipo de raíz deseas?\n" NORMAL);
         printf("\t  Pulsa 1 si deseas raíz cuadrada\n"
                "\t  Pulsa 2 si deseas raíz cúbica\n");
         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -166,12 +150,11 @@ do{
     break;
 
     case 9:
-        printf(VERDE "\t¿Qué tipo de área y perímetro deseas?\n" NORMAL);
+        printf(MAGENTA "\t¿Qué tipo de área y perímetro deseas?\n" NORMAL);
         printf("\t  Pulsa 1 si deseas el de un cuadrado\n"
                "\t  Pulsa 2 si deseas el de un triángulo\n"
                "\t  Pulsa 3 si deseas el de un rectángulo\n"
-               "\t  Pulsa 4 si deseas el de un paralelogramo\n"
-               "\t  Pulsa 5 si deseas el de un rombo\n");
+               "\t  Pulsa 4 si deseas el de un paralelogramo\n");
         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         printf(AZUL "Escoge la opción deseada: " NORMAL);
         scanf("%i", &Opcion2);
@@ -228,25 +211,13 @@ do{
                    "El resultado del perímetro: %.2f\n" NORMAL, area, perimetro);
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         break;
-        case 5:
-            printf(AZUL "Introducir la longitud del 'Diametro mayor': " NORMAL);
-            scanf(" %lf", &diaM);
-            printf(AZUL "Introducir la longitud del 'Diametro menor': " NORMAL);
-            scanf(" %lf", &diam);
-            printf(AZUL "Introducir la longitud del 'lado': " NORMAL);
-            scanf(" %lf", &lado);
-            area = diaM*diam/2;
-            perimetro = 4*lado;
-            printf(AMARILLO "El resultado del área es: %.2f\n"
-                   "El resultado del perímetro: %.2f\n" NORMAL, area, perimetro);
-        break;
         }
     break;
 
     break;
 
     case 10:
-        printf(VERDE "\t¿Qué tipo de raíz deseas?\n" NORMAL);
+        printf(MAGENTA "\t¿Qué tipo de raíz deseas?\n" NORMAL);
         printf("\t  Pulsa 1 si deseas realizar el seno\n"
                "\t  Pulsa 2 si deseas realizar el coseno\n"
                "\t  Pulsa 3 si deseas realizar la tangente\n");
@@ -286,18 +257,6 @@ do{
         break;
         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     break;
-    /*case 12:
-        printf(AZUL "Introducir la 'masa 1': " NORMAL);
-        scanf(" %d", &HorasTrabajdas);
-        printf(AZUL "Introducir la 'masa 2': " NORMAL);
-        scanf(" %f", &PrecioHora);
-        printf(AZUL "Introducir la 'distancia': " NORMAL);
-        scanf(" %f", &PrecioHora);
-        Fuerza = G*masa1*masa2/distancia^2 HorasTrabajdas*PrecioHora;
-        printf(AMARILLO "El sueldo total del trabajador es: %.2f€\n" NORMAL, sueldo);
-        break;
-        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-    break; */
 
     default: printf(ROJO "Por favor seleccione una opción correcta\n\n" NORMAL);
     }

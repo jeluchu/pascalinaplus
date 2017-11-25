@@ -1,3 +1,9 @@
+//PROGRAMA EN C++
+//AUTOR: JESÚS MARÍA CALDERÓN - GITHUB JELUCHU
+//https://github.com/Jeluchu
+
+//ESTE ES UN PROYECTO QUE COMENCÉ A REALIZAR TRAS APRENDER ALGUNOS CONOCIMIENTOS BÁSICOS DE PROGRAMACIÓN, Y QUE POCO A POCO HA IDO AVANZANDO. POR ESO EN MIS RATOS LIBRES INTENTARÉ REALIZAR MEJORAS A ESTA CALCULADORA. ASÍ QUE POR EL MOMENTO ESTARÁ EN DESARROLLO. SI QUERÉIS SABER MÁS ACERCA DE ESTE PROYECTO O APORTAR ALGUNA IDEA, NO DUDÉIS EN PONEROS EN CONTACTO
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -17,11 +23,14 @@ int main(){
     int Opcion;
     double Resultado;
     double n;
+    float numero;
+    float porcentajea;
+    float porcentajeb;
 
     printf("\n");
-    system("toilet --gay -fpagga PASCALINA\n\n");
+    system("toilet --gay -fpagga PASCALINA v0.5.7\n\n");
     printf("\n");
-    printf(VERDE "PASCALINA v0.5.2 ~ Versión 'Estable'\n" NORMAL);
+    printf(VERDE "PASCALINA v0.5.7 ~ Versión 'Estable'\n" NORMAL);
     printf("Bienvenido/a a 'Pascalina', la calculadora adivina\n");
     printf("En ella podrás realizar diversas operaciónes con dos números\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -41,6 +50,7 @@ int main(){
     printf("\t  Pulsa 4 si deseas dividir\n");
     printf("\t  Pulsa 5 si deseas hacer una Raíz Cuadrada\n");
     printf("\t  Pulsa 6 si deseas cambiar los valores\n");
+    printf("\t  Pulsa 7 si deseas realizar porcentajes\n");
     printf("\t  Pulsa 0 si deseas salir\n\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     printf(AZUL "Escoge la opción deseada: " NORMAL);
@@ -95,6 +105,19 @@ do{
         scanf(" %lf", &op2);
         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     break;
+
+    case 7:
+
+        printf(AZUL "Introducir el primer número deseado: " NORMAL);
+        scanf("\n%f", &numero);
+        printf(AZUL "Introducir el porcentaje que deseas obtener: " NORMAL);
+        scanf("\n%f", &porcentajea);
+        porcentajeb = porcentajea /100;
+        Resultado = numero*porcentajeb;
+        printf("\n El %.2f por ciento de %.2f es %.2f\n\n", porcentajea, numero, Resultado);
+        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
+    break;
+
 
     default: printf(ROJO "Por favor seleccione una opción correcta\n\n" NORMAL);
 

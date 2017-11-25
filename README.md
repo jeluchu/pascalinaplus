@@ -1,5 +1,5 @@
-# Pascalina
-Pascalina is a basic calculator in which you can do various operations with two numbers
+# PASCALINA
+Pascalina is a basic calculator in which you can do various operations with two numbers. Currently only available in 'Spanish'
 
 ![Icono GDM](./Fotos/Captura1.png)
 

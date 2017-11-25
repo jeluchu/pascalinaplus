@@ -1,3 +1,9 @@
+//PROGRAMA EN C++
+//AUTOR: JESÚS MARÍA CALDERÓN - GITHUB JELUCHU
+//https://github.com/Jeluchu
+
+//ESTE ES UN PROYECTO QUE COMENCÉ A REALIZAR TRAS APRENDER ALGUNOS CONOCIMIENTOS BÁSICOS DE PROGRAMACIÓN, Y QUE POCO A POCO HA IDO AVANZANDO. POR ESO EN MIS RATOS LIBRES INTENTARÉ REALIZAR MEJORAS A ESTA CALCULADORA. ASÍ QUE POR EL MOMENTO ESTARÁ EN DESARROLLO. SI QUERÉIS SABER MÁS ACERCA DE ESTE PROYECTO O APORTAR ALGUNA IDEA, NO DUDÉIS EN PONEROS EN CONTACTO
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -19,9 +25,9 @@ int main(){
     float numero, porcentajea, porcentajeb, PrecioHora, sueldo;
 
     printf("\n");
-    system("toilet --gay -fpagga PASCALINA v0.7.2\n\n");
+    system("toilet --gay -fpagga PASCALINA v0.6\n\n");
     sleep(2);
-    printf(VERDE "PASCALINA v0.7.2 ~ Versión 'ESTABLE'\n" NORMAL);
+    printf(VERDE "PASCALINA v0.6 ~ Versión 'ESTABLE'\n" NORMAL);
     printf("Bienvenido/a a 'Pascalina', la calculadora adivina\n");
     printf("En ella podrás realizar diversas operaciónes con dos números\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
