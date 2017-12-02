@@ -2,6 +2,7 @@
 Pascalina is a basic calculator in which you can do various operations with two numbers. Currently only available in 'Spanish'
 
 ![Icono GDM](./Fotos/Captura1.png)
+![Icono GDM](./Fotos/Captura2.png)
 
 # INSTRUCTIONS
 - Open 'Terminal'
@@ -20,6 +21,19 @@ It is required to have the 'toilet' complement installed
 - You can install from the terminal with sudo apt-get install toilet
 
 # VERSIONS
+
+## v1.0 · Blaise Pascal
+- Add 'preloader' version
+- New name for new version, in this case v1.0 = Blaise Pascal
+- New welcome message and farewell
+- New feature, you can now use logarithms!
+- New grouping of basic operations (addition, subtraction, multiplication and division)
+- Created a main menu
+- The results of the operations performed will be erased automatically after a short period of time
+- Code optimization
+- Removed the choice of initial values
+- Eliminated the option of the main menu of the change of variables
+- Including Pascalina's motto in the main menu
 
 ## v0.8
 - Fix bugs
