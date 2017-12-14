@@ -42,47 +42,49 @@ It is required to have the 'toilet' complement installed
 - Eliminated the option of the main menu of the change of variables
 - Including Pascalina's motto in the main menu
 
-## v0.8
+## Initial Versions
+
+### v0.8
 - Fix bugs
 - Optimize
 - Include the date and time when the program starts
 - Included a welcome message
 
 
-## v0.7.2
+### v0.7.2
 - Fix problems with version
 
-## v0.7
+### v0.7
 - Fix bugs and optimize
 - New Options in Principal Menu: Calculate your salary and Areas and perimeters
 - New Menu in 'Areas and perimeters'
 - In Areas and perimeters, you can choose squares, rectangles, parallelograms and triangles
 
-## v0.6
+### v0.6
 - Optimize
 - New Menu in 'Square Root', you can use 'Cubic Roots'
 - NEW FEATURES: Trigonometric functions
 - New Menu in Trigonometric functions (sin, cos, tan)
 
-## v0.5.8.2
+### v0.5.8.2
 - Fix bugs
 - Create a small 'Preloader'
 - Code optimization 'Level 1'
 
-## v0.5.8
+### v0.5.8
 - Fix bugs and optimize
 - Add NEW FEATURES: Powers; Area and perimeter of a square
 
-## v0.5.7
+### v0.5.7
 - Optimize
 - Add NEW FEATURES: Percentages
 
-## v0.5.2
+### v0.5.2
 - Fix problems and optimize
 - Add colors in the Pascalina, Discover them!
 - Decimals are included in this version, Enjoy them!
 
-## v0.5
+### v0.5
 - Fix problems with 'Square Root'
 - Add new options
 - You can exit pressing option '0'
