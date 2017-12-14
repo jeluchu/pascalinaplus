@@ -22,7 +22,14 @@ It is required to have the 'toilet' complement installed
 
 # VERSIONS
 
-## v1.0 · Blaise Pascal
+## Blaise Pascal · Started with v1.0
+
+### v1.8
+- Fix bugs
+- Optimize
+- Color correction
+
+### v1.0
 - Add 'preloader' version
 - New name for new version, in this case v1.0 = Blaise Pascal
 - New welcome message and farewell
