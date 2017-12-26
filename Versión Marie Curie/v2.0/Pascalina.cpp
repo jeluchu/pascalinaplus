@@ -3,6 +3,10 @@
   al siguiente correo: jeluchu@gmail.com
   Muchas gracias*/
 
+//PROGRAMA EN C++
+//AUTOR: JESÚS MARÍA CALDERÓN - GITHUB JELUCHU
+//https://github.com/Jeluchu
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
