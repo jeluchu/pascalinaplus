@@ -1,6 +1,6 @@
 # PASCALINA
 
-![Icono GDM](./Fotos/Captura1.png)
+![Icono GDM](./Fotos/foto.png)
 
 ## REQUISITOS
 Para poder disfrutar al máximo de esta calculadora deberás instalar los siguientes complementos: 'toilet' y 'sl', los podrás instalar de la siguiente manera desde la terminal de comandos de Ubuntu
@@ -8,7 +8,7 @@ Para poder disfrutar al máximo de esta calculadora deberás instalar los siguie
 - 'toilet' = sudo apt-get install toilet
 - 'sl' = sudo apt-get install sl
 
-![Icono GDM](./Fotos/Captura2.png)
+![Icono GDM](./Fotos/foto2.png)
 
 # BETATESTERS
 Si deseas participar en las Versiones BETA, que salgan sobre esta versión, podrás encontrar el link aquí:
