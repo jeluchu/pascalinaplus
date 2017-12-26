@@ -1,5 +1,3 @@
-# PASCALINA
-
 ![Icono GDM](./Fotos/foto.png)
 
 ## REQUISITOS
