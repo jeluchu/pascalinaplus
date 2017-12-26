@@ -1,30 +1,33 @@
 # PASCALINA
-Pascalina is a basic calculator in which you can do various operations with two numbers. Currently only available in 'Spanish'
 
 ![Icono GDM](./Fotos/Captura1.png)
+
+## REQUISITOS
+Para poder disfrutar al máximo de esta calculadora deberás instalar los siguientes complementos: 'toilet' y 'sl', los podrás instalar de la siguiente manera desde la terminal de comandos de Ubuntu
+
+- 'toilet' = sudo apt-get install toilet
+- 'sl' = sudo apt-get install sl
+
 ![Icono GDM](./Fotos/Captura2.png)
 
 # BETATESTERS
-Do you want to try the new version before anyone else?. Well now you can, just go to the following link:
-https://github.com/Jeluchu/Pascalina/releases/tag/BETA
+Si deseas participar en las Versiones BETA, que salgan sobre esta versión, podrás encontrar el link aquí:
 
-# INSTRUCTIONS
-- Open 'Terminal'
-- Go to the directory where you keep the files
-- Execute: ./Pascalinav0.5.2 (./Pascalinav + the number of version)
-- To execute 'Pascalina', will request you two numbers to carry out the operations
-- Then you can choose the option of the desired operation
-- At the end, you will get the result, and you can perform any other operation
+- ACTUALMENTE ESTÁ CERRADA LA VERSIÓN BETA. MUCHAS GRACIAS POR TU AYUDA
 
-# Enjoy it!
-- If you like 'Pascalina', you can give it stars or share it
-- If you want to make a request or suggestion for it, please contact me by email; jeluchu@gmail.com
+# INSTRUCCIONES DE USO
+- Abre la 'Terminal'
+- Dirigete al directorio dónde esté guardado el archivo
+- Ejecuta de la siguiente manera: ./Pascalina
+- Una vez iniciada, te saldrá un tren y un inicio de bienvenida, espera entorno 10 segundos
+- Una vez iniciada se limpiará la pantalla y saldrá el menú de opciones
+- A continuación, ¡DISFRUTA DE ELLA!
 
-## REQUIREMENT
-It is required to have the 'toilet' complement installed
-- You can install from the terminal with sudo apt-get install toilet
+# SI TE GUSTA ESTE PROYECTO:
+- Puedes darnos 'Stars'
+- Y quieres contribuir enviando tus opiniones y sugerencias, envía un correo a: jeluchu@gmail.com
 
-## VERSIONS
-If you want to know more about the advances in each version, go to:
+# VERSIONES
+Si deseas ver el historial completo de las versiones, dirigete al siguiente link:
 https://github.com/Jeluchu/Pascalina/releases
 
