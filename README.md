@@ -11,7 +11,7 @@ Para poder disfrutar al máximo de esta calculadora deberás instalar los siguie
 # BETATESTERS
 Si deseas participar en las Versiones BETA, que salgan sobre esta versión, podrás encontrar el link aquí:
 
-- ACTUALMENTE ESTÁ CERRADA LA VERSIÓN BETA. MUCHAS GRACIAS POR TU AYUDA
+- https://github.com/Jeluchu/Pascalina/releases/tag/v2.0.1
 
 # INSTRUCCIONES DE USO
 - Abre la 'Terminal'
