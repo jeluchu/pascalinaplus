@@ -13,7 +13,7 @@ Si deseas participar en las Versiones BETA, que salgan sobre esta versión, podr
 
 - https://github.com/Jeluchu/Pascalina/releases/tag/v2.0.1
 
-[Pincha si eres BETATESTER](https://github.com/Jeluchu/Pascalina/releases/tag/v2.0.1){.btn.btn-primary}
+[Descargá el archivo de audio](/sites/default/files/himnonacionalargentino.mp3){.btn.btn-xs.btn-primary}
 
 # INSTRUCCIONES DE USO
 - Abre la 'Terminal'
