@@ -12,6 +12,7 @@ Para poder disfrutar al máximo de esta calculadora deberás instalar los siguie
 Si deseas participar en las Versiones BETA, que salgan sobre esta versión, podrás encontrar el link aquí:
 
 - https://github.com/Jeluchu/Pascalina/releases/tag/v2.0.1
+[Pincha si eres BETATESTER](https://github.com/Jeluchu/Pascalina/releases/tag/v2.0.1){.btn.btn-lg.btn-success}
 
 # INSTRUCCIONES DE USO
 - Abre la 'Terminal'
@@ -28,4 +29,3 @@ Si deseas participar en las Versiones BETA, que salgan sobre esta versión, podr
 # VERSIONES
 Si deseas ver el historial completo de las versiones, dirigete al siguiente link:
 https://github.com/Jeluchu/Pascalina/releases
-
