@@ -1,13 +1,9 @@
 [Desktop Entry]
 Name=Pascalina
 Comment=La calculadora adivina
-
-Exec=/home/student/nombre_Usuario/bin/Pascalina/Pascalina %F
-Icon=/home/student/nombre_Usuario/bin/Pascalina/imagen/pascalina.png
-
+Exec=Pascalina
+Icon=pascalina
 Encoding=UTF-8
-Terminal=true
 Categories=Application;
-
 Type=Application
-Name[es]=Pascalina.desktop
+Name[es]=Pascalina
