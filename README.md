@@ -19,7 +19,7 @@ Para instalar sl: `sudo apt-get install sl`
 
 > Si por algún caso, no consiguieras instalar Pascalina en tu ordenador, te aconsejamos que te pongas en contacto conmigo para intentar resolver el problema
 
-> Puedes contactar mediante el correo electrónico jeluchu@gmail.com, o desde la página web https://jeluchu.github.io/ - Jéluchu
+> Puedes contactar mediante el correo electrónico jeluchu@gmail.com, o desde la página web https://jeluchu.github.io/
 
 # SI TE GUSTA ESTE PROYECTO
 ~~~
