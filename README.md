@@ -10,11 +10,9 @@ Para instalar sl: `sudo apt-get install sl`
 
 # INSTRUCCIONES DE USO
 - Descarga el repositorio
-- Guarda el ejecutable en la carpeta /home/tunombre_usuario/bin/Pascalina/Pascalina
-- Guarda la carpeta imagen en la carpeta /home/tunombre_usuario/bin/Pascalina/imagen/pascalina.png
-- Abre la terminal desde /bin/Pascalina/, e introduce `gedit Pascalina.desktop`, para añadir el nombre de tu usuario
-- Después de este proceso, te aconsejamos que pulses las teclas `Alt+F2+r` (Ubuntu), para reiniciar el entorno de GNOME
-- Una vez realizado todo esto, debería tener que salirte el icono de Pascalina en la carpeta de todas las aplicaciones
+- Abre la "Terminal" desde la carpeta descargada
+- Ejecuta lo siguiente `./Install.sh`
+- Una vez terminado el proceso de instalación, busca 'Pascalina' entre tus aplicaciones
 - A continuación, ¡DISFRUTA DE ELLA!
 
 > Si por algún caso, no consiguieras instalar Pascalina en tu ordenador, te aconsejamos que te pongas en contacto conmigo para intentar resolver el problema
