@@ -1,10 +1,14 @@
 ![Icono GDM](./Fotos/foto.png)
 
 ## REQUISITOS
-Para poder disfrutar al máximo de esta calculadora deberás instalar los siguientes complementos: 'toilet' y 'sl', los podrás instalar de la siguiente manera desde la terminal de comandos de Ubuntu
+Para poder disfrutar al máximo de esta calculadora deberás instalar los siguientes complementos: 'toilet' y 'sl', los podrás instalar de la siguiente manera desde la terminal de comandos de Ubuntu. A continuación, id a la terminal e incluir las siguientes líneas:
 
-- 'toilet' = sudo apt-get install toilet
-- 'sl' = sudo apt-get install sl
+Para instalar toilet: `sudo apt-get install toilet` 
+
+Para instalar sl: `sudo apt-get install sl` 
+
+- 'toilet' = 
+- 'sl' = 
 
 ![Icono GDM](./Fotos/foto2.png)
 
