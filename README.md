@@ -27,5 +27,5 @@ O si lo prefieres puedes contribuir enviando tus opiniones y sugerencias
 
 # HISTORIAL DE VERSIONES · PRÓXIMAMENTE
 
-
+> Aparecerán en la nueva web que pronto podréis ver al completo y que a día de hoy todava sigue en construcción
 
