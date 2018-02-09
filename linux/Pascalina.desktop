@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Pascalina
+Name=pascalina
 Comment=La calculadora adivina
-Exec=Pascalina
+Exec=pascalina
 Icon=pascalina
 Encoding=UTF-8
 Categories=Application;
