@@ -1,5 +1,5 @@
-![Icono GDM](./Fotos/foto.png)
-![Icono GDM](./Fotos/foto2.png)
+![Icono GDM](./fotos/foto.png)
+![Icono GDM](./fotos/foto2.png)
 
 ## REQUISITOS
 Para poder disfrutar al máximo de esta calculadora deberás instalar los siguientes complementos: 'toilet' y 'sl', los podrás instalar de la siguiente manera desde la terminal de comandos de Ubuntu. A continuación, id a la terminal e incluir las siguientes líneas:
