@@ -47,6 +47,7 @@ int main(){
         fflush(stdout);
         Opcion1 = leerNumero();
         printf("+---------------------------------------------------------------------+\n");
+
         switch (Opcion1) {
           case 1:
             suma();
@@ -63,12 +64,37 @@ int main(){
             sleep(5);
           break;
 
-          case 4: 
+          case 4:
             division();
+            sleep(5);
+          break;
+
+          case 5:
+            restodivision();
+            sleep(5);
+          break;
+
+          case 6:
+            mediaritmetica();
+            sleep(5);
+          break;
+
+          case 7:
+            digitalizadornumerico();
+            sleep(5);
+          break;
+
+          case 8:
+            sumafracciones();
             sleep(5);
           break;
         }
       break;
+
+      case 0:
+        return EXIT_SUCCESS;
+      break;
+
     default: printf(ROJO "\t  Por favor seleccione una opción correcta\n\n" NORMAL);
     }
 

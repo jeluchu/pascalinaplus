@@ -7,6 +7,8 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <cctype>
+#include <strings.h>
+#include <string.h>
 
 #include "opbasic.h"
 
