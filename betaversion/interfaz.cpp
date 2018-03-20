@@ -59,7 +59,7 @@ void menu(){
           "┃" NEGRITA "\t  Pulsa 2 " NORMAL "para 'Raíces'"   "\t\t\t      ┃\n"
           "┃" NEGRITA "\t  Pulsa 3 " NORMAL "para 'Porcentajes'" "\t\t      ┃\n"
           "┃" NEGRITA "\t  Pulsa 4 " NORMAL "para 'Potencias'" "\t\t      ┃\n"
-          "┃" NEGRITA "\t  Pulsa 5 " NORMAL "para 'Áreas y perímetros'" "\t      ┃\n"
+          "┃" NEGRITA "\t  Pulsa 5 " NORMAL "para 'Geometría'" "\t\t      ┃\n"
           "┃" NEGRITA "\t  Pulsa 6 " NORMAL "para 'Funciones trigonométricas'" "    ┃\n"
           "┃" NEGRITA "\t  Pulsa 7 " NORMAL "para 'Economía" "\t\t      ┃\n"
           "┃" NEGRITA "\t  Pulsa 8 " NORMAL "para 'Logaritmos'" "\t\t      ┃\n"
