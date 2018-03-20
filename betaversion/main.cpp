@@ -10,6 +10,8 @@
 
 #include "interfaz.h"
 #include "opbasic.h"
+#include "raiz.h"
+#include "porcentajes.h"
 
 
 //ERRORES
@@ -38,9 +40,11 @@ int main(){
     menu();
     printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
     OpcionM = leerNumero();
-    printf("+---------------------------------------------------------------------+\n");
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 
     switch (OpcionM) {
+
+      /* OPERACIONES BÁSICO */
       case 1:
         menu_basico();
         printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
@@ -91,6 +95,36 @@ int main(){
         }
       break;
 
+      /* RAÍCES */
+      case 2:
+	menu_raiz();
+        printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
+        fflush(stdout);
+        Opcion2 = leerNumero();
+        printf("+---------------------------------------------------------------------+\n");
+	
+	switch(Opcion2){
+	 case 1:
+	  raiz_cuadrada();
+	  sleep(5);
+	 break;
+
+	 case 2:
+	  raiz_cubica();
+	  sleep(5);
+	 break;
+	}
+       break;
+
+
+      /* PORCENTAJES */
+      case 3:
+	porcentaje();
+	sleep(5);
+      break;
+
+
+      /* SALIDA DEL PROGRAMA */
       case 0:
         return EXIT_SUCCESS;
       break;

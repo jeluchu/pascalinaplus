@@ -2,4 +2,6 @@ all:
 			g++ -c main.cpp
 			g++ -c interfaz.cpp
 			g++ -c opbasic.cpp
-			g++ -o pascalina opbasic.o interfaz.o main.o
+			g++ -c raices.cpp
+			g++ -c porcentajes.cpp
+			g++ -o pascalina porcentajes.o raices.o opbasic.o interfaz.o main.o
