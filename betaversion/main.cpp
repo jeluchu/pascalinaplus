@@ -12,7 +12,8 @@
 #include "opbasic.h"
 #include "raiz.h"
 #include "porcentajes.h"
-
+#include "potencias.h"
+#include "escritura.h"
 
 //ERRORES
 int leerNumero()
@@ -36,11 +37,12 @@ int main(){
 
     //inicio();
 
+  crear_archivo();
+
   do{
     menu();
     printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
     OpcionM = leerNumero();
-    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 
     switch (OpcionM) {
 
@@ -55,6 +57,7 @@ int main(){
         switch (Opcion1) {
           case 1:
             suma();
+	    res_sumas();
             sleep(5);
           break;
 
@@ -93,16 +96,18 @@ int main(){
             sleep(5);
           break;
         }
+
       break;
 
       /* RAÍCES */
       case 2:
+
 	menu_raiz();
         printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
         fflush(stdout);
         Opcion2 = leerNumero();
         printf("+---------------------------------------------------------------------+\n");
-	
+
 	switch(Opcion2){
 	 case 1:
 	  raiz_cuadrada();
@@ -114,6 +119,7 @@ int main(){
 	  sleep(5);
 	 break;
 	}
+
        break;
 
 
@@ -123,6 +129,18 @@ int main(){
 	sleep(5);
       break;
 
+
+      /* POTENCIAS */
+      case 4:
+	potencia();
+	sleep(5);
+      break;
+
+
+      /* ÁREAS Y PERÍMETROS */
+      case 5:
+
+      break;
 
       /* SALIDA DEL PROGRAMA */
       case 0:
