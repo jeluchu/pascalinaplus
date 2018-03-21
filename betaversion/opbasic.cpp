@@ -38,27 +38,27 @@ void menu_basico()
 
 void suma ()
 {
-  double op1, op2, Resultado;
+  double numero1, numero2, Resultado;
 
   printf(AZULETE "\t  Introducir el primer número deseado: " NORMAL);
   __fpurge(stdin);
-  scanf(" %lf", &op1);
+  scanf(" %lf", &numero1);
 
   printf(AZULETE "\t  Introducir el segundo número deseado: " NORMAL);
   __fpurge(stdin);
-  scanf(" %lf", &op2);
+  scanf(" %lf", &numero2);
   printf("+---------------------------------------------------------------------+\n");
 
-  if((op1<=10000000) && (op2<=10000000))
+  if((numero1<=10000000) && (numero2<=10000000))
   {
-    Resultado = op1+op2;
+    Resultado = numero1+numero2;
     printf(AMARILLO"\t  El resultado de la suma es: " NORMAL
            NEGRITA "%.2f\n" NORMAL, Resultado);
   }
   else
   {
     printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);
-  }
+  } 
 
 }
 
