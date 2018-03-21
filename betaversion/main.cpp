@@ -14,7 +14,9 @@
 #include "porcentajes.h"
 #include "potencias.h"
 #include "escritura.h"
+#include "lecturas.h"
 
+/*
 //ERRORES
 int leerNumero()
 {
@@ -23,14 +25,13 @@ int leerNumero()
    scanf("%i", &numero );
    return numero;
 }
-
+*/
 
 void pausa() {
   __fpurge(stdin);
   printf("|     Pulsa" VERDE " 'ENTER' " NORMAL "para para comenzar");
   while(getchar()!='\n');
 }
-
 
 int main(){
 
@@ -53,7 +54,6 @@ int main(){
         printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
         fflush(stdout);
         Opcion1 = leerNumero();
-        printf("+---------------------------------------------------------------------+\n");
 
         switch (Opcion1) {
           case 1:
@@ -95,30 +95,40 @@ int main(){
             sumafracciones();
             sleep(5);
           break;
+
+          default: printf(ROJO "\t  Por favor seleccione una opción correcta\n\n" NORMAL);
+          pausa();
         }
 
-      break;
+    break;
 
-      /* RAÍCES */
-      case 2:
 
-	menu_raiz();
-        printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
-        fflush(stdout);
-        Opcion2 = leerNumero();
-        printf("+---------------------------------------------------------------------+\n");
+    case 2: /* RAÍCES */
 
-	switch(Opcion2){
-	 case 1:
-	  raiz_cuadrada();
-	  sleep(5);
-	 break;
+	   menu_raiz();
+     printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
+     fflush(stdout);
+     Opcion2 = leerNumero();
 
-	 case 2:
-	  raiz_cubica();
-	  sleep(5);
-	 break;
-	}
+     switch(Opcion2){
+    	 case 1:
+      	  raiz_cuadrada();
+      	  sleep(5);
+    	 break;
+
+    	 case 2:
+      	  raiz_cubica();
+      	  sleep(5);
+    	 break;
+
+       default:
+           printf("\n\n");
+           printf(
+                 "╔══════════════════════════════════╗\n"
+                 "║"ROJO "\t  OPCIÓN INCORRECTA" NORMAL      "\t   ║\n"
+                 "╚══════════════════════════════════╝\n");
+           pausa();
+      	}
 
        break;
 
@@ -153,6 +163,7 @@ int main(){
       break;
 
     default: printf(ROJO "\t  Por favor seleccione una opción correcta\n\n" NORMAL);
+    pausa();
     }
 
   }while(OpcionM!=0);

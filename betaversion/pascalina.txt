@@ -1,3 +1,8 @@
-PASCALINA v3.0 21/03/18
-En este documento podrás visualizar todos los resultados de las operaciones realizadas
+
+
+┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
+PASCALINA v3.0 ~ 21/03/18 a las 19:25
+─────────────────────────────────────
+
+Historial de operaciones realizadas
 

@@ -18,6 +18,7 @@ extern "C" {
 void crear_archivo();
 void res_sumas(double op1, double op2, double Resultado);
 void res_restas(double op1, double op2, double Resultado);
+void res_multiplicaciones(double op1, double op2, double resultado);
 //void instrucciones();
 #ifdef __cplusplus
 }

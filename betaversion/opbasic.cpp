@@ -20,18 +20,18 @@ void menu_basico()
   system("toilet -fpagga OPERACIONES BÁSICAS\n\n");
   printf("\n");
   printf(
-        "+---------------------------------------------------------------------+\n"
-        "|"      VERDE "\t\t¿Qué operación deseas realizar?" NORMAL        "\t\t\t      |\n"
-        "+---------------------------------------------------------------------+\n"
-        NEGRITA "\t  Pulsa 1 " NORMAL "'Suma'\n"
-        NEGRITA "\t  Pulsa 2 " NORMAL "'Resta'\n"
-        NEGRITA "\t  Pulsa 3 " NORMAL "'Multiplicación'\n"
-        NEGRITA "\t  Pulsa 4 " NORMAL "'División'\n"
-        NEGRITA "\t  Pulsa 5 " NORMAL "'Resto de una división entera'\n"
-        NEGRITA "\t  Pulsa 6 " NORMAL "'Media entre varios números'\n"
-        NEGRITA "\t  Pulsa 7 " NORMAL "'Digitalizador de números'\n"
-        NEGRITA "\t  Pulsa 8 " NORMAL "'Suma de fracciones'\n");
-  printf("+---------------------------------------------------------------------+\n");
+        "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+        "┃"      VERDE "\t¿Qué operación deseas realizar?" NORMAL        "\t\t      ┃\n"
+        "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n"
+        "┃"NEGRITA "\t  Pulsa 1 " NORMAL "'Suma'"   "\t\t\t      ┃\n"
+        "┃"NEGRITA "\t  Pulsa 2 " NORMAL "'Resta' " "\t\t\t      ┃\n"
+        "┃"NEGRITA "\t  Pulsa 3 " NORMAL "'Multiplicación'" "\t\t      ┃\n"
+        "┃"NEGRITA "\t  Pulsa 4 " NORMAL "'División'" "\t\t\t      ┃\n"
+        "┃"NEGRITA "\t  Pulsa 5 " NORMAL "'Resto de una división entera'" "      ┃\n"
+        "┃"NEGRITA "\t  Pulsa 6 " NORMAL "'Media entre varios números'" "\t      ┃\n"
+        "┃"NEGRITA "\t  Pulsa 7 " NORMAL "'Digitalizador de números'" "\t      ┃\n"
+        "┃"NEGRITA "\t  Pulsa 8 " NORMAL "'Suma de fracciones'" "\t\t      ┃\n");
+  printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 
 
 
@@ -39,7 +39,7 @@ void menu_basico()
 
 void suma ()
 {
-  double numero1, numero2, Resultado;
+  double numero1, numero2, resultado;
 
   printf(AZULETE "\t  Introducir el primer número deseado: " NORMAL);
   __fpurge(stdin);
@@ -52,15 +52,15 @@ void suma ()
 
   if((numero1<=10000000) && (numero2<=10000000))
   {
-    Resultado = numero1+numero2;
+    resultado = numero1+numero2;
     printf(AMARILLO"\t  El resultado de la suma es: " NORMAL
-           NEGRITA "%.2f\n" NORMAL, Resultado);
-    res_sumas(numero1, numero2, Resultado);
+           NEGRITA "%.2f\n" NORMAL, resultado);
+    res_sumas(numero1, numero2, resultado);
   }
   else
   {
     printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);
-  } 
+  }
 
 }
 
@@ -92,7 +92,7 @@ void resta()
 
 void multiplicacion()
 {
-  double op1, op2, Resultado;
+  double op1, op2, resultado;
 
   printf(AZULETE "\t  Introducir el primer número deseado: " NORMAL);
   __fpurge(stdin);
@@ -103,15 +103,16 @@ void multiplicacion()
   scanf(" %lf", &op2);
   printf("+---------------------------------------------------------------------+\n");
   if((op1<=10000000) || (op2<=10000000)){
-  Resultado = op1*op2;
+  resultado = op1*op2;
   printf(AMARILLO"\t  El resultado de la multiplicación es: " NORMAL
-         NEGRITA "%.2f\n" NORMAL, Resultado);
+         NEGRITA "%.2f\n" NORMAL, resultado);
+  res_multiplicaciones(op1, op2, resultado);
   }else{printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);}
 }
 
 void division()
 {
-  double op1, op2, Resultado;
+  double op1, op2, resultado;
 
   printf(AZULETE "\t  Introducir el primer número deseado: " NORMAL);
   __fpurge(stdin);
@@ -122,9 +123,9 @@ void division()
   scanf(" %lf", &op2);
   printf("+---------------------------------------------------------------------+\n");
   if((op1<=10000000) || (op2<=10000000)){
-  Resultado = op1/op2;
+  resultado = op1/op2;
   printf(AMARILLO"\t  El resultado de la división es: " NORMAL
-         NEGRITA "%.2f\n" NORMAL, Resultado);
+         NEGRITA "%.2f\n" NORMAL, resultado);
   }else{printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);}
 }
 
