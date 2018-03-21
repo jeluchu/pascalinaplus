@@ -9,6 +9,7 @@
 #include <cctype>
 #include <strings.h>
 #include <string.h>
+#include "escritura.h"
 
 #include "opbasic.h"
 
@@ -54,6 +55,7 @@ void suma ()
     Resultado = numero1+numero2;
     printf(AMARILLO"\t  El resultado de la suma es: " NORMAL
            NEGRITA "%.2f\n" NORMAL, Resultado);
+    res_sumas(numero1, numero2, Resultado);
   }
   else
   {
@@ -64,7 +66,7 @@ void suma ()
 
 void resta()
 {
-  double op1, op2, Resultado;
+  double op1, op2, resultado;
 
   printf(AZULETE "\t  Introducir el primer número deseado: " NORMAL);
   __fpurge(stdin);
@@ -77,9 +79,10 @@ void resta()
 
   if((op1<=10000000) && (op2<=10000000))
   {
-    Resultado = op1-op2;
+    resultado = op1-op2;
     printf(AMARILLO "\t  El resultado de la resta es: " NORMAL
-           NEGRITA "%.2f\n" NORMAL, Resultado);
+           NEGRITA "%.2f\n" NORMAL, resultado);
+    res_restas(op1, op2, resultado);
   }
   else
   {

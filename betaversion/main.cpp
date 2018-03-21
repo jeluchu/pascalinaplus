@@ -24,12 +24,13 @@ int leerNumero()
    return numero;
 }
 
-/*
+
 void pausa() {
+  __fpurge(stdin);
   printf("|     Pulsa" VERDE " 'ENTER' " NORMAL "para para comenzar");
   while(getchar()!='\n');
 }
-*/
+
 
 int main(){
 
@@ -57,8 +58,7 @@ int main(){
         switch (Opcion1) {
           case 1:
             suma();
-	    res_sumas();
-            sleep(5);
+            pausa();
           break;
 
           case 2:

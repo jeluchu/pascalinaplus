@@ -13,12 +13,21 @@
 void inicio(){
 
       system("clear");
-
+	
       time_t tiempo = time(0);
       struct tm *tlocal = localtime(&tiempo);
 
       char output[128];
       strftime(output, 128, "%d/%m/%y a las %H:%M:%S", tlocal);
+
+      FILE* fichero;
+      fichero = fopen("pascalina.txt", "a+");
+
+      fprintf(fichero, "PASCALINA v3.0 %d/%m/%y\n", tlocal);
+      fprintf(fichero, "En este documento podrás visualizar todos los resultados de las operaciones realizadas\n\n");
+    
+      fclose(fichero);
+
 
       printf("\n");
       system("toilet --gay -fpagga PASCALINA\n\n");
