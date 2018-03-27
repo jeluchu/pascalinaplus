@@ -41,9 +41,16 @@ void suma ()
 {
   double numero1, numero2, resultado;
 
+  system("clear");
+  system("toilet --gay -fpagga PASCALINA\n\n");
+  system("toilet -fpagga OPERACIONES BÁSICAS\n\n");
+  printf("\n");
+
   printf(AZULETE "\t  Introducir el primer número deseado: " NORMAL);
   __fpurge(stdin);
   scanf(" %lf", &numero1);
+
+  printf("\n");
 
   printf(AZULETE "\t  Introducir el segundo número deseado: " NORMAL);
   __fpurge(stdin);
