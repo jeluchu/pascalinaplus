@@ -28,8 +28,16 @@ int leerNumero()
 */
 
 void pausa() {
+  system("setterm -cursor off");
   __fpurge(stdin);
+<<<<<<< HEAD
+  printf(
+    "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+    "┃\t  Pulsa" VERDE " 'ENTER' " NORMAL "para para continuar\t      ┃\n"
+    "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+=======
   printf("❯\t  Pulsa" VERDE " 'ENTER' " NORMAL "para para comenzar");
+>>>>>>> af991b40ee82ef151b33467dbceb4a25d2d90d03
   while(getchar()!='\n');
 }
 
@@ -42,6 +50,7 @@ int main(){
   crear_archivo();
 
   do{
+    system("setterm -cursor on");
     menu();
     printf(AZUL "\t  Escoge la opción deseada: " NORMAL);
     OpcionM = leerNumero();
@@ -64,37 +73,37 @@ int main(){
 
           case 2:
             resta();
-            sleep(5);
+            pausa();
           break;
 
           case 3:
             multiplicacion();
-            sleep(5);
+            pausa();
           break;
 
           case 4:
             division();
-            sleep(5);
+            pausa();
           break;
 
           case 5:
             restodivision();
-            sleep(5);
+            pausa();
           break;
 
           case 6:
             mediaritmetica();
-            sleep(5);
+            pausa();
           break;
 
           case 7:
             digitalizadornumerico();
-            sleep(5);
+            pausa();
           break;
 
           case 8:
             sumafracciones();
-            sleep(5);
+            pausa();
           break;
 
           default: printf(ROJO "\t  Por favor seleccione una opción correcta\n\n" NORMAL);
@@ -114,19 +123,19 @@ int main(){
      switch(Opcion2){
     	 case 1:
       	  raiz_cuadrada();
-      	  sleep(5);
+      	  pausa();
     	 break;
 
     	 case 2:
       	  raiz_cubica();
-      	  sleep(5);
+      	  pausa();
     	 break;
 
        default:
            printf("\n\n");
            printf(
                  "╔══════════════════════════════════╗\n"
-                 "║"ROJO "\t  OPCIÓN INCORRECTA" NORMAL      "\t   ║\n"
+                 "║" ROJO "\t  OPCIÓN INCORRECTA" NORMAL      "\t   ║\n"
                  "╚══════════════════════════════════╝\n");
            pausa();
       	}

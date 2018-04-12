@@ -23,14 +23,14 @@ void menu_basico()
         "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
         "┃"      VERDE "\t¿Qué operación deseas realizar?" NORMAL        "\t\t      ┃\n"
         "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n"
-        "┃"NEGRITA "\t  Pulsa 1 " NORMAL "'Suma'"   "\t\t\t      ┃\n"
-        "┃"NEGRITA "\t  Pulsa 2 " NORMAL "'Resta' " "\t\t\t      ┃\n"
-        "┃"NEGRITA "\t  Pulsa 3 " NORMAL "'Multiplicación'" "\t\t      ┃\n"
-        "┃"NEGRITA "\t  Pulsa 4 " NORMAL "'División'" "\t\t\t      ┃\n"
-        "┃"NEGRITA "\t  Pulsa 5 " NORMAL "'Resto de una división entera'" "      ┃\n"
-        "┃"NEGRITA "\t  Pulsa 6 " NORMAL "'Media entre varios números'" "\t      ┃\n"
-        "┃"NEGRITA "\t  Pulsa 7 " NORMAL "'Digitalizador de números'" "\t      ┃\n"
-        "┃"NEGRITA "\t  Pulsa 8 " NORMAL "'Suma de fracciones'" "\t\t      ┃\n");
+        "┃" NEGRITA "\t  Pulsa 1 " NORMAL "'Suma'"   "\t\t\t      ┃\n"
+        "┃" NEGRITA "\t  Pulsa 2 " NORMAL "'Resta' " "\t\t\t      ┃\n"
+        "┃" NEGRITA "\t  Pulsa 3 " NORMAL "'Multiplicación'" "\t\t      ┃\n"
+        "┃" NEGRITA "\t  Pulsa 4 " NORMAL "'División'" "\t\t\t      ┃\n"
+        "┃" NEGRITA "\t  Pulsa 5 " NORMAL "'Resto de una división entera'" "      ┃\n"
+        "┃" NEGRITA "\t  Pulsa 6 " NORMAL "'Media entre varios números'" "\t      ┃\n"
+        "┃" NEGRITA "\t  Pulsa 7 " NORMAL "'Digitalizador de números'" "\t      ┃\n"
+        "┃" NEGRITA "\t  Pulsa 8 " NORMAL "'Suma de fracciones'" "\t\t      ┃\n");
   printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 
 
@@ -119,20 +119,21 @@ void multiplicacion()
 
 void division()
 {
-  double op1, op2, resultado;
+  double dividendo, divisor, resto;
 
   printf(AZULETE "\t  Introducir el primer número deseado: " NORMAL);
   __fpurge(stdin);
-  scanf(" %lf", &op1);
+  scanf(" %lf", &dividendo);
 
   printf(AZULETE "\t  Introducir el segundo número deseado: " NORMAL);
   __fpurge(stdin);
-  scanf(" %lf", &op2);
+  scanf(" %lf", &divisor);
   printf("+---------------------------------------------------------------------+\n");
-  if((op1<=10000000) || (op2<=10000000)){
-  resultado = op1/op2;
+  if((dividendo<=10000000) || (divisor<=10000000)){
+  resto = dividendo/divisor;
   printf(AMARILLO"\t  El resultado de la división es: " NORMAL
-         NEGRITA "%.2f\n" NORMAL, resultado);
+         NEGRITA "%.2f\n" NORMAL, resto);
+  res_divisiones(dividendo, divisor, resto);
   }else{printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);}
 }
 
@@ -150,6 +151,8 @@ void restodivision()
   resto=dividendo%divisor;
   printf(AMARILLO "\t  El resto de la division es: " NORMAL
          NEGRITA "%d\n" NORMAL,resto);
+  res_resto_divisiones(dividendo,divisor,resto);
+
 }
 
 void mediaritmetica()
@@ -157,11 +160,19 @@ void mediaritmetica()
   int V;
   float Media,n1,n2,n3;
 
-  printf(AZUL "\t  Introduce el número de valores que habrá (min 2, máx 3): " NORMAL);
+  printf(AZUL "\t  Introduce cuántos números vas a querer: " NORMAL);
   __fpurge(stdin);
   scanf("%i",&V);
+
+  for (int i = 0; i < V; i++) {
+    printf(NEGRITA "\t  PRÓXIMAMENTE\n" NORMAL);
+  }
+
+/*
+
   while(getchar()!='\n');
-  printf("+---------------------------------------------------------------------+\n");
+  printf("+---------------------------------------------------------------------+\n"); */
+  /*
   switch(V){
   case 2:
       printf(AZULETE "\t  Introduce el primer número: " NORMAL);
@@ -192,7 +203,7 @@ void mediaritmetica()
               NEGRITA "%.2f\n" NORMAL,Media);
   break;
   default: printf(ROJO "\t  Por favor seleccione una opción correcta\n\n" NORMAL);
-  }
+} */
 
 }
 

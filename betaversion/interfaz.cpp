@@ -13,7 +13,7 @@
 void inicio(){
 
       system("clear");
-	
+
       time_t tiempo = time(0);
       struct tm *tlocal = localtime(&tiempo);
 
@@ -25,7 +25,7 @@ void inicio(){
 
       fprintf(fichero, "PASCALINA v3.0 %d/%m/%y\n", tlocal);
       fprintf(fichero, "En este documento podrás visualizar todos los resultados de las operaciones realizadas\n\n");
-    
+
       fclose(fichero);
 
 
@@ -76,6 +76,7 @@ void menu(){
           "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n"
           "┃" NEGRITA "\t  Pulsa 0 " NORMAL "si deseas salir" "\t\t      ┃\n"
           "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+          printf("\n");
 
 
 }

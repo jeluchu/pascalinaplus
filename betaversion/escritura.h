@@ -19,6 +19,8 @@ void crear_archivo();
 void res_sumas(double op1, double op2, double Resultado);
 void res_restas(double op1, double op2, double Resultado);
 void res_multiplicaciones(double op1, double op2, double resultado);
+void res_divisiones(double dividendo, double divisor, double resto);
+void res_resto_divisiones(double dividendo, double divisor, double resto);
 //void instrucciones();
 #ifdef __cplusplus
 }
