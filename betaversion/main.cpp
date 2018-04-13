@@ -30,14 +30,12 @@ int leerNumero()
 void pausa() {
   system("setterm -cursor off");
   __fpurge(stdin);
-<<<<<<< HEAD
   printf(
     "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
     "┃\t  Pulsa" VERDE " 'ENTER' " NORMAL "para para continuar\t      ┃\n"
     "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-=======
+
   printf("❯\t  Pulsa" VERDE " 'ENTER' " NORMAL "para para comenzar");
->>>>>>> af991b40ee82ef151b33467dbceb4a25d2d90d03
   while(getchar()!='\n');
 }
 
