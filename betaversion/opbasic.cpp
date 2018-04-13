@@ -32,6 +32,7 @@ void menu_basico()
         "┃" NEGRITA "\t  Pulsa 7 " NORMAL "'Digitalizador de números'" "\t      ┃\n"
         "┃" NEGRITA "\t  Pulsa 8 " NORMAL "'Suma de fracciones'" "\t\t      ┃\n");
   printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+  printf("\n");
 
 
 
@@ -41,32 +42,31 @@ void suma ()
 {
   double numero1, numero2, resultado;
 
-  system("clear");
-  system("toilet --gay -fpagga PASCALINA\n\n");
-  system("toilet -fpagga OPERACIONES BÁSICAS\n\n");
-  printf("\n");
-
   printf(AZULETE "\t  Introducir el primer número deseado: " NORMAL);
   __fpurge(stdin);
   scanf(" %lf", &numero1);
 
-  printf("\n");
-
   printf(AZULETE "\t  Introducir el segundo número deseado: " NORMAL);
   __fpurge(stdin);
   scanf(" %lf", &numero2);
-  printf("+---------------------------------------------------------------------+\n");
 
-  if((numero1<=10000000) && (numero2<=10000000))
+  printf("\n");
+
+  if((numero1<9000000) && (numero2<9000000))
   {
     resultado = numero1+numero2;
-    printf(AMARILLO"\t  El resultado de la suma es: " NORMAL
-           NEGRITA "%.2f\n" NORMAL, resultado);
+    printf(AMARILLO
+           "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+           "\t  El resultado de la suma es: %.2f      \n"
+           "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL, resultado);
     res_sumas(numero1, numero2, resultado);
   }
   else
   {
-    printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);
+    printf(ROJO
+           "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+           "┃\t Introduce valores menores de 9.000.000\t      ┃\n"
+           "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL);
   }
 
 }
@@ -82,18 +82,25 @@ void resta()
   printf(AZULETE "\t  Introducir el segundo número deseado: " NORMAL);
   __fpurge(stdin);
   scanf(" %lf", &op2);
-  printf("+---------------------------------------------------------------------+\n");
+
+  printf("\n");
 
   if((op1<=10000000) && (op2<=10000000))
   {
     resultado = op1-op2;
-    printf(AMARILLO "\t  El resultado de la resta es: " NORMAL
-           NEGRITA "%.2f\n" NORMAL, resultado);
+
+    printf(AMARILLO
+           "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+           "\t  El resultado de la resta es: %.2f      \n"
+           "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL, resultado);
     res_restas(op1, op2, resultado);
   }
   else
   {
-    printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);
+    printf(ROJO
+           "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+           "┃\t Introduce valores menores de 9.000.000\t      ┃\n"
+           "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL);
   }
 }
 
@@ -108,13 +115,21 @@ void multiplicacion()
   printf(AZULETE "\t  Introducir el segundo número deseado: " NORMAL);
   __fpurge(stdin);
   scanf(" %lf", &op2);
-  printf("+---------------------------------------------------------------------+\n");
+  
   if((op1<=10000000) || (op2<=10000000)){
   resultado = op1*op2;
-  printf(AMARILLO"\t  El resultado de la multiplicación es: " NORMAL
-         NEGRITA "%.2f\n" NORMAL, resultado);
+
+  printf(AMARILLO
+          "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+          "\t  La multiplicacion da: %.2f      \n"
+          "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL, resultado);
   res_multiplicaciones(op1, op2, resultado);
-  }else{printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);}
+  }else{
+    printf(ROJO
+           "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+           "┃\t Introduce valores menores de 9.000.000\t      ┃\n"
+           "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL);
+  }
 }
 
 void division()
@@ -134,7 +149,12 @@ void division()
   printf(AMARILLO"\t  El resultado de la división es: " NORMAL
          NEGRITA "%.2f\n" NORMAL, resto);
   res_divisiones(dividendo, divisor, resto);
-  }else{printf(ROJO"\t  Introduce valores menores de 10.000.000\n" NORMAL);}
+  }else{
+    printf(ROJO
+           "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+           "┃\t Introduce valores menores de 9.000.000\t      ┃\n"
+           "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL);
+  }
 }
 
 void restodivision()

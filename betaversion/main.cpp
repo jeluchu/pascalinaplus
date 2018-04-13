@@ -34,8 +34,6 @@ void pausa() {
     "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
     "┃\t  Pulsa" VERDE " 'ENTER' " NORMAL "para para continuar\t      ┃\n"
     "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-
-  printf("❯\t  Pulsa" VERDE " 'ENTER' " NORMAL "para para comenzar");
   while(getchar()!='\n');
 }
 
@@ -65,7 +63,6 @@ int main(){
         switch (Opcion1) {
           case 1:
             suma();
-            printf("\n\n");
             pausa();
           break;
 
