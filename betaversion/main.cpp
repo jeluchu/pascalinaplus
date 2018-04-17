@@ -128,27 +128,27 @@ int main(){
 
        default:
            printf("\n\n");
-           printf(
-                 "╔══════════════════════════════════╗\n"
-                 "║" ROJO "\t  OPCIÓN INCORRECTA" NORMAL      "\t   ║\n"
-                 "╚══════════════════════════════════╝\n");
+           printf(ROJO
+                  "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+                  "┃\t  INTRODUCE UNA OPCIÓN CORRECTA\t\t      ┃\n"
+                  "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL);
            pausa();
       	}
 
-       break;
+      break;
 
 
       /* PORCENTAJES */
       case 3:
-	porcentaje();
-	sleep(5);
+      	porcentaje();
+      	pausa();
       break;
 
 
       /* POTENCIAS */
       case 4:
-	potencia();
-	sleep(5);
+      	potencia();
+      	sleep(5);
       break;
 
 
@@ -167,8 +167,12 @@ int main(){
         return EXIT_SUCCESS;
       break;
 
-    default: printf(ROJO "\t  Por favor seleccione una opción correcta\n\n" NORMAL);
-    pausa();
+    default:
+    printf(ROJO
+           "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+           "┃\t  INTRODUCE UNA OPCIÓN CORRECTA\t\t      ┃\n"
+           "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL);
+        pausa();
     }
 
   }while(OpcionM!=0);

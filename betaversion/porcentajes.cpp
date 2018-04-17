@@ -21,16 +21,18 @@ void porcentaje()
         system("toilet --gay -fpagga PASCALINA\n\n");
         system("toilet -fpagga PORCENTAJES\n\n");
         printf("\n");
-       	printf("+---------------------------------------------------------------------+\n");
-        printf(AZULETE "\t  Introduce el primer número deseado: " NORMAL);
+       	printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+        printf(AZULETE "\t  Introduce la cantidad deseada: " NORMAL);
         scanf("\n%f", &numero);
-        printf(AZULETE "\t  Introduce el número del porcentaje deseado: " NORMAL);
+        printf(AZULETE "\t  Introduce el porcentaje deseado: " NORMAL);
         scanf("\n%f", &porcentajea);
-        printf("+---------------------------------------------------------------------+\n");
+				printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+        printf("\n");
         porcentajeb = porcentajea /100;
         Resultado = numero*porcentajeb;
-        printf(AMARILLO "\t  El %.0f por ciento de %.0f es: " NORMAL
-               NEGRITA "%.2f\n" NORMAL, porcentajea, numero, Resultado);
+				printf(AMARILLO
+               "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+               "\t  El %.0f por ciento de %.0f es %.2f      \n"
+               "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL, porcentajea, numero, Resultado);
 
 }
-
