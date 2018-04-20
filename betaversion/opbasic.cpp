@@ -115,7 +115,9 @@ void multiplicacion()
   printf(AZULETE "\t  Introducir el segundo número deseado: " NORMAL);
   __fpurge(stdin);
   scanf(" %lf", &op2);
-  
+
+  printf("\n");
+
   if((op1<=10000000) || (op2<=10000000)){
   resultado = op1*op2;
 
@@ -143,7 +145,9 @@ void division()
   printf(AZULETE "\t  Introducir el segundo número deseado: " NORMAL);
   __fpurge(stdin);
   scanf(" %lf", &divisor);
-  printf("+---------------------------------------------------------------------+\n");
+
+  printf("\n");
+
   if((dividendo<=10000000) || (divisor<=10000000)){
   resto = dividendo/divisor;
   printf(AMARILLO"\t  El resultado de la división es: " NORMAL
@@ -167,10 +171,16 @@ void restodivision()
   printf(AZULETE "\t  Introduce el divisor: " NORMAL);
   __fpurge(stdin);
   scanf("%d",&divisor);
-  printf("+---------------------------------------------------------------------+\n");
+
+  printf("\n");
+
   resto=dividendo%divisor;
-  printf(AMARILLO "\t  El resto de la division es: " NORMAL
-         NEGRITA "%d\n" NORMAL,resto);
+  printf(AMARILLO
+          "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+          "\t  El resto de la division es: %d\n"
+          "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n" NORMAL, resto);
+
+
   res_resto_divisiones(dividendo,divisor,resto);
 
 }

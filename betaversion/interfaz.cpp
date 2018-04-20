@@ -23,7 +23,7 @@ void inicio(){
       FILE* fichero;
       fichero = fopen("pascalina.txt", "a+");
 
-      fprintf(fichero, "PASCALINA v3.0 %d/%m/%y\n", tlocal);
+      fprintf(fichero, "PASCALINA v3.0 %ld/%m/%y\n", tlocal);
       fprintf(fichero, "En este documento podrás visualizar todos los resultados de las operaciones realizadas\n\n");
 
       fclose(fichero);
