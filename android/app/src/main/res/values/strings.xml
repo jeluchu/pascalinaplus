@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Pascalina</string>
+
+    <string name="history_result">"History result: "</string>
+
+    <string name="history">History: </string>
+    <string name="clear_history">Clear history</string>
+    <string name="history_result">"History result: "</string>
+    <string name="no_history">"There's no history yet."</string>
+    <string name="history_cleared">History cleared</string>
+</resources>

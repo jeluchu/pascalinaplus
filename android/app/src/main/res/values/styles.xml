@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionOverflowButtonStyle">@style/MyOverFlow</item>
+    </style>
+
+    <style name="MemoryButtom" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/buttonHighLight</item>
+        <item name="colorButtonNormal">@color/buttonNormal</item>
+    </style>
+
+    <style name="MyButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="MyOverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_menu</item>
+    </style>
+
+</resources>
