@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_history"
+            android:src="@drawable/ic_trash"
             tools:ignore="ContentDescription" />
 
     </RelativeLayout>

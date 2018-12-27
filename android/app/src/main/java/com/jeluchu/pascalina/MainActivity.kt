@@ -11,44 +11,43 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.ParseException
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listener {
 
     /* ---------   VARIABLES   --------- */
 
     // ESTABLECIENDO BOTONES
-    private val buttonPercentage: Button by bind(R.id.btn_percent)
-    private val buttonRoot: Button by bind(R.id.btn_root)
-    private val buttonSquare: Button by bind(R.id.btn_power)
+    private val botonPorcentaje: Button by bind(R.id.btn_percent)
+    private val botonRaiz: Button by bind(R.id.btn_root)
+    private val botonPotencia: Button by bind(R.id.btn_power)
 
-    private val buttonBackspace: Button by bind(R.id.btn_clear)
-    private val buttonDivision: Button by bind(R.id.btn_divide)
-    private val buttonMultiplication: Button by bind(R.id.btn_multiply)
-    private val buttonSubtraction: Button by bind(R.id.btn_minus)
-    private val buttonAddition: Button by bind(R.id.btn_plus)
-    private val buttonEqual: Button by bind(R.id.btn_equals)
-    private val buttonPlusMinus: Button by bind(R.id.btn_minus)
-    private val buttonComma: Button by bind(R.id.btn_decimal)
+    private val botonBorrar: Button by bind(R.id.btn_clear)
+    private val botonDivision: Button by bind(R.id.btn_divide)
+    private val botonMultiplicacion: Button by bind(R.id.btn_multiply)
+    private val botonResta: Button by bind(R.id.btn_minus)
+    private val botonSuma: Button by bind(R.id.btn_plus)
+    private val botonIgual: Button by bind(R.id.btn_equals)
+    private val botonMasMenos: Button by bind(R.id.btn_minus)
+    private val botonComa: Button by bind(R.id.btn_decimal)
 
-    private val textViewHistoryText: TextView by bind(R.id.formula)
-    private val textViewCurrentNumber: AppCompatTextView by bind(R.id.result)
+    private val tvHistorial: TextView by bind(R.id.formula)
+    private val tvResultado: AppCompatTextView by bind(R.id.result)
 
-    private var isFutureOperationButtonClicked: Boolean = false
-    private var isInstantOperationButtonClicked: Boolean = false
-    private var isEqualButtonClicked: Boolean = false
+    private var opBotonPulsado: Boolean = false
+    private var instanteBotonPulsado: Boolean = false
+    private var igualPulsado: Boolean = false
 
-    private var currentNumber: Double = 0.0 // Value can be changed.
-    private var currentResult: Double = 0.0
-    private var memory: Double = 0.0
+    private var numActual: Double = 0.0 // Value can be changed.
+    private var resActual: Double = 0.0
+    private var memoria: Double = 0.0
 
-    private var historyText = "" // Recognize type of variable without declaring it.
-    private var historyInstantOperationText = ""
-    private var historyActionList: ArrayList<String> = ArrayList()
-
+    private var tHistorial = "" // Recognize type of variable without declaring it.
+    private var historialOpTexto = ""
+    private var listaAccionHistorial: ArrayList<String> = ArrayList()
 
     private val button0: Button by bind(R.id.btn_0)
     private val button1: Button by bind(R.id.btn_1)
@@ -74,21 +73,21 @@ class MainActivity : AppCompatActivity() {
 
     private val INIT = ""
 
-    private val ADDITION = " + "
-    private val SUBTRACTION = " − "
-    private val MULTIPLICATION = " × "
+    private val SUMA = " + "
+    private val RESTA = " − "
+    private val MULTIPLICACION = " × "
     private val DIVISION = " ÷ "
 
-    private val PERCENTAGE = ""
-    private val ROOT = "√"
-    private val SQUARE = "sqr"
-    private val FRACTION = "1/"
+    private val PORCENTAJE = ""
+    private val RAIZ = "√"
+    private val POTENCIA = "pow"
+    private val FRACCION = "1/"
 
-    private val NEGATE = "negate"
-    private val COMMA = ","
-    private val EQUAL = " = "
+    private val NEGATIVO = "negate"
+    private val COMA = ","
+    private val IGUAL = " = "
 
-    private var currentOperation = INIT
+    private var opActual = INIT
 
 
     /* ---------   ONCREATE   --------- */
@@ -101,88 +100,8 @@ class MainActivity : AppCompatActivity() {
 
         declararBotones()
         limpiarOperaciones()
-
-
-        buttonPlusMinus.setOnClickListener {
-
-            val currentValue: String = textViewCurrentNumber.text.toString()
-
-            currentNumber = formatStringToDouble(currentValue)
-            if (currentNumber == 0.0) return@setOnClickListener
-
-            currentNumber *= -1
-            textViewCurrentNumber.text = formatDoubleToString(currentNumber)
-
-            if (isInstantOperationButtonClicked) {
-                historyInstantOperationText = "($historyInstantOperationText)"
-                historyInstantOperationText = StringBuilder().append(NEGATE).append(historyInstantOperationText).toString()
-                textViewHistoryText.text = StringBuilder().append(historyText).append(currentOperation).append(historyInstantOperationText).toString()
-            }
-
-            if (isEqualButtonClicked) {
-                currentOperation = INIT
-            }
-
-            isFutureOperationButtonClicked = false
-            isEqualButtonClicked = false
-        }
-
-        buttonComma.setOnClickListener {
-
-            var currentValue: String = textViewCurrentNumber.text.toString()
-
-            if (isFutureOperationButtonClicked || isInstantOperationButtonClicked || isEqualButtonClicked) {
-
-                currentValue = StringBuilder().append(CERO).append(COMMA).toString()
-
-                if (isInstantOperationButtonClicked) {
-                    historyInstantOperationText = ""
-                    textViewHistoryText.text = StringBuilder().append(historyText).append(currentOperation).toString()
-                }
-                if (isEqualButtonClicked) currentOperation = INIT
-                currentNumber = 0.0
-            } else if (currentValue.contains(COMMA)) {
-                return@setOnClickListener
-            } else currentValue = StringBuilder().append(currentValue).append(COMMA).toString()
-
-            textViewCurrentNumber.text = currentValue
-
-            isFutureOperationButtonClicked = false
-            isInstantOperationButtonClicked = false
-            isEqualButtonClicked = false
-        }
-
-        buttonEqual.setOnClickListener {
-
-            if (isFutureOperationButtonClicked) {
-                currentNumber = currentResult
-            }
-
-            val historyAllText = calculateResult()
-
-            Toast.makeText(applicationContext, historyAllText, Toast.LENGTH_LONG).show()
-
-            historyActionList.add(historyAllText)
-
-            historyText = StringBuilder().append(formatDoubleToString(currentResult)).toString()
-
-            textViewHistoryText.text = ""
-
-            isFutureOperationButtonClicked = false
-            isEqualButtonClicked = true
-        }
-
-        buttonPercentage.setOnClickListener {
-            onInstantOperationButtonClick(PERCENTAGE)
-        }
-
-        buttonRoot.setOnClickListener {
-            onInstantOperationButtonClick(ROOT)
-        }
-
-        buttonSquare.setOnClickListener {
-            onInstantOperationButtonClick(SQUARE)
-        }
+        comaDecimales()
+        igualPulsado()
 
     }
 
@@ -190,6 +109,7 @@ class MainActivity : AppCompatActivity() {
 
     // DECLARAR VALOR DE BOTÓN
     private fun declararBotones(){
+
         button0.setOnClickListener {
             onNumberButtonClick(CERO)
         }
@@ -221,52 +141,107 @@ class MainActivity : AppCompatActivity() {
             onNumberButtonClick(NUEVE)
         }
 
-        buttonAddition.setOnClickListener {
-            onFutureOperationButtonClick(ADDITION)
-        }
-
-        buttonSubtraction.setOnClickListener {
-            onFutureOperationButtonClick(SUBTRACTION)
-        }
-
-        buttonMultiplication.setOnClickListener {
-            onFutureOperationButtonClick(MULTIPLICATION)
-        }
-
-        buttonDivision.setOnClickListener {
+        botonDivision.setOnClickListener {
             onFutureOperationButtonClick(DIVISION)
         }
+
+        botonMultiplicacion.setOnClickListener {
+            onFutureOperationButtonClick(MULTIPLICACION)
+        }
+
+        botonResta.setOnClickListener {
+            onFutureOperationButtonClick(RESTA)
+        }
+
+        botonSuma.setOnClickListener {
+            onFutureOperationButtonClick(SUMA)
+        }
+
+        botonPorcentaje.setOnClickListener {
+            onInstantOperationButtonClick(PORCENTAJE)
+        }
+
+        botonRaiz.setOnClickListener {
+            onInstantOperationButtonClick(RAIZ)
+        }
+
+        botonPotencia.setOnClickListener {
+            onInstantOperationButtonClick(POTENCIA)
+        }
+
     }
 
     // BORRAR CARACTERES (1 A 1 / TODO)
-    private fun limpiarOperaciones(){
+    private fun limpiarOperaciones() {
 
-        buttonBackspace.setOnClickListener {
+        // PULSACIÓN CORTA
+        botonBorrar.setOnClickListener {
 
-            if (isFutureOperationButtonClicked || isInstantOperationButtonClicked || isEqualButtonClicked) return@setOnClickListener
+            if (opBotonPulsado || instanteBotonPulsado || igualPulsado) return@setOnClickListener
 
-            var currentValue: String = textViewCurrentNumber.text.toString()
+            var valorActual: String = tvResultado.text.toString()
 
-            val charsLimit = if (currentValue.first().isDigit()) 1 else 2
+            val charsLimit = if (valorActual.first().isDigit()) 1 else 2
 
-            if (currentValue.length > charsLimit)
-                currentValue = currentValue.substring(0, currentValue.length - 1)
-            else
-                currentValue = CERO
+            if (valorActual.length > charsLimit) {
+                valorActual = valorActual.substring(0, valorActual.length - 1)
+            } else {
+                valorActual = CERO
+            }
 
-            textViewCurrentNumber.text = currentValue
-            currentNumber = formatStringToDouble(currentValue)
+            tvResultado.text = valorActual
+            resActual = formatStringToDouble(valorActual)
 
         }
 
-        buttonBackspace.setOnLongClickListener {
+        // PULSACIÓN LARGA
+        botonBorrar.setOnLongClickListener {
 
-            this.result.text = null
-            this.formula.text = ""
+            numActual = 0.0
+            resActual = 0.0
+            opActual = INIT
 
-            return@setOnLongClickListener true
+            tHistorial = ""
+            historialOpTexto = ""
+
+            tvResultado.text = formatDoubleToString(numActual)
+            tvHistorial.text = tHistorial
+
+            opBotonPulsado = false
+            igualPulsado = false
+            instanteBotonPulsado = false
+
+            return@setOnLongClickListener false
+
         }
 
+    }
+
+    // VALOR DE LA COMA
+    private fun comaDecimales() {
+
+        botonComa.setOnClickListener {
+
+            var currentValue: String = tvResultado.text.toString()
+
+            if (opBotonPulsado || instanteBotonPulsado || igualPulsado) {
+                currentValue = StringBuilder().append(CERO).append(COMA).toString()
+                if (instanteBotonPulsado) {
+                    tHistorial = ""
+                    tvHistorial.text = StringBuilder().append(tHistorial).append(opActual).toString()
+                }
+                if (igualPulsado) opActual = INIT
+                resActual = 0.0
+            } else if (currentValue.contains(COMA)) {
+                return@setOnClickListener
+            } else currentValue = StringBuilder().append(currentValue).append(COMA).toString()
+
+            tvResultado.text = currentValue
+
+            opBotonPulsado = false
+            instanteBotonPulsado = false
+            igualPulsado = false
+        }
     }
 
     // APLICANDO OPCIONES DEL MENÚ
@@ -275,132 +250,162 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    @Throws(IllegalArgumentException::class)
-    private fun onNumberButtonClick(number: String, isHistory: Boolean = false) {
-
-        var currentValue: String = textViewCurrentNumber.text.toString()
-
-        currentValue = if (currentValue == CERO || isFutureOperationButtonClicked || isInstantOperationButtonClicked || isEqualButtonClicked || isHistory) number else StringBuilder().append(currentValue).append(number).toString()
-
-        try {
-            currentNumber = formatStringToDouble(currentValue)
-        } catch (e: ParseException) {
-            throw IllegalArgumentException("String must be number.")
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        // Safe call operator ? added to the variable before invoking the property instructs the compiler to invoke the property only if the value isn't null.
+        when (item?.itemId) {
+            R.id.history -> {
+                HistoryActionListDialogFragment.newInstance(listaAccionHistorial).show(getSupportFragmentManager(), "dialog")
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
 
-        textViewCurrentNumber.text = currentValue
-
-        if (isEqualButtonClicked) {
-            currentOperation = INIT
-            historyText = ""
-        }
-
-        if (isInstantOperationButtonClicked) {
-            historyInstantOperationText = ""
-            textViewHistoryText.text = StringBuilder().append(historyText).append(currentOperation).toString()
-            isInstantOperationButtonClicked = false
-        }
-
-        isFutureOperationButtonClicked = false
-        isEqualButtonClicked = false
     }
 
-    private fun onFutureOperationButtonClick(operation: String) {
+    private fun calcularResultado(): String {
 
-        if (!isFutureOperationButtonClicked && !isEqualButtonClicked) {
-            calculateResult()
+        when (opActual) {
+            INIT -> {
+                resActual = numActual
+                tHistorial = StringBuilder().append(tvHistorial.text.toString()).toString()
+            }
+            SUMA -> resActual +=  numActual
+            RESTA -> resActual -= numActual
+            MULTIPLICACION -> resActual *= numActual
+            DIVISION -> resActual /= numActual
         }
 
-        currentOperation = operation
+        tvResultado.text = formatDoubleToString(resActual)
 
-        if (isInstantOperationButtonClicked) {
-            isInstantOperationButtonClicked = false
-            historyText = textViewHistoryText.text.toString()
+        if (instanteBotonPulsado) {
+            instanteBotonPulsado = false
+            tHistorial = tvHistorial.text.toString()
+            if (igualPulsado) tHistorial = StringBuilder().append(tHistorial).append(opActual).append(formatDoubleToString(numActual)).toString()
+        } else {
+            tHistorial = StringBuilder().append(tHistorial).append(opActual).append(formatDoubleToString(numActual)).toString()
         }
-        textViewHistoryText.text = StringBuilder().append(historyText).append(operation).toString()
 
-        isFutureOperationButtonClicked = true
-        isEqualButtonClicked = false
+        return StringBuilder().append(tHistorial).append(IGUAL).append(formatDoubleToString(resActual)).toString()
     }
 
     private fun onInstantOperationButtonClick(operation: String) {
 
-        var currentValue: String = textViewCurrentNumber.text.toString()
-        var thisOperationNumber: Double = formatStringToDouble(currentValue)
+        var valorActual: String = tvResultado.text.toString()
+        var numOpActual: Double = formatStringToDouble(valorActual)
 
-        currentValue = "(${formatDoubleToString(thisOperationNumber)})"
+        valorActual = "(${formatDoubleToString(numOpActual)})"
 
         when (operation) {
-            PERCENTAGE -> {
-                thisOperationNumber = (currentResult * thisOperationNumber) / 100
-                currentValue = formatDoubleToString(thisOperationNumber)
+            PORCENTAJE -> {
+                numOpActual = (resActual * numOpActual) / 100
+                valorActual = formatDoubleToString(numOpActual)
             }
 
-            ROOT -> {
-                    thisOperationNumber = thisOperationNumber.sqrt
-            }
-
-            SQUARE -> {
-                thisOperationNumber = thisOperationNumber * thisOperationNumber
-            }
-            FRACTION -> {
-                thisOperationNumber = 1 / thisOperationNumber
-            }
+            RAIZ -> numOpActual = numOpActual.sqrt
+            POTENCIA -> numOpActual = numOpActual * numOpActual
+            //FRACTION -> thisOperationNumber = 1 / thisOperationNumber
         }
 
-        if (isInstantOperationButtonClicked) {
-            historyInstantOperationText = "($historyInstantOperationText)"
-            historyInstantOperationText = StringBuilder().append(operation).append(historyInstantOperationText).toString()
-            textViewHistoryText.text = if (isEqualButtonClicked) historyInstantOperationText else StringBuilder().append(historyText).append(currentOperation).append(historyInstantOperationText).toString()
-        } else if (isEqualButtonClicked) {
-            historyInstantOperationText = StringBuilder().append(operation).append(currentValue).toString()
-            textViewHistoryText.text = historyInstantOperationText
+        if (instanteBotonPulsado) {
+            historialOpTexto = "($historialOpTexto)"
+            historialOpTexto = StringBuilder().append(operation).append(historialOpTexto).toString()
+            tvHistorial.text = if (igualPulsado) historialOpTexto else StringBuilder().append(tHistorial).append(opActual).append(historialOpTexto).toString()
+        } else if (igualPulsado) {
+            historialOpTexto = StringBuilder().append(operation).append(valorActual).toString()
+            tvHistorial.text = historialOpTexto
         } else {
-            historyInstantOperationText = StringBuilder().append(operation).append(currentValue).toString()
-            textViewHistoryText.text = StringBuilder().append(historyText).append(currentOperation).append(historyInstantOperationText).toString()
+            historialOpTexto = StringBuilder().append(operation).append(valorActual).toString()
+            tvHistorial.text = StringBuilder().append(tHistorial).append(opActual).append(historialOpTexto).toString()
         }
 
-        textViewCurrentNumber.text = formatDoubleToString(thisOperationNumber)
+        tvResultado.text = formatDoubleToString(numOpActual)
 
-        if (isEqualButtonClicked) currentResult = thisOperationNumber else currentNumber = thisOperationNumber
+        if (igualPulsado) resActual = numOpActual else numActual = numOpActual
 
-        isInstantOperationButtonClicked = true
-        isFutureOperationButtonClicked = false
+        instanteBotonPulsado = true
+        opBotonPulsado = false
     }
 
-    private fun calculateResult(): String {
+    // PULSACION IGUAL
+    private fun igualPulsado() {
 
-        when (currentOperation) {
-            INIT -> {
-                currentResult = currentNumber
-                historyText = StringBuilder().append(textViewHistoryText.text.toString()).toString()
+        botonIgual.setOnClickListener {
+
+            if (opBotonPulsado) {
+                numActual = resActual
             }
-            ADDITION -> currentResult = currentResult + currentNumber
-            SUBTRACTION -> currentResult = currentResult - currentNumber
-            MULTIPLICATION -> currentResult = currentResult * currentNumber
-            DIVISION -> currentResult = currentResult / currentNumber
+
+            val historyAllText = calcularResultado()
+
+            listaAccionHistorial.add(historyAllText)
+
+            tHistorial = StringBuilder().append(formatDoubleToString(resActual)).toString()
+
+            tvHistorial.text = ""
+
+            opBotonPulsado = false
+            igualPulsado = true
+        }
+    }
+
+    @Throws(IllegalArgumentException::class)
+    private fun onNumberButtonClick(number: String, isHistory: Boolean = false) {
+
+        var valorActual: String = tvResultado.text.toString()
+
+        valorActual = if (valorActual == CERO || opBotonPulsado || instanteBotonPulsado || igualPulsado || isHistory) number else StringBuilder().append(valorActual).append(number).toString()
+
+        try {
+            numActual = formatStringToDouble(valorActual)
+        } catch (e: ParseException) {
+            throw IllegalArgumentException("String must be number.")
         }
 
-        textViewCurrentNumber.text = formatDoubleToString(currentResult)
+        tvResultado.text = valorActual
 
-        if (isInstantOperationButtonClicked) {
-            isInstantOperationButtonClicked = false
-            historyText = textViewHistoryText.text.toString()
-            if (isEqualButtonClicked) historyText = StringBuilder().append(historyText).append(currentOperation).append(formatDoubleToString(currentNumber)).toString()
-        } else {
-            historyText = StringBuilder().append(historyText).append(currentOperation).append(formatDoubleToString(currentNumber)).toString()
+        if (igualPulsado) {
+            opActual = INIT
+            tHistorial = ""
         }
 
-        return StringBuilder().append(historyText).append(EQUAL).append(formatDoubleToString(currentResult)).toString()
+        if (instanteBotonPulsado) {
+            historialOpTexto = ""
+            tvHistorial.text = StringBuilder().append(tHistorial).append(opActual).toString()
+            instanteBotonPulsado = false
+        }
+
+        opBotonPulsado = false
+        igualPulsado = false
+    }
+
+    private fun onFutureOperationButtonClick(operation: String) {
+
+        if (!opBotonPulsado && !igualPulsado) {
+            calcularResultado()
+        }
+
+        opActual = operation
+
+        if (instanteBotonPulsado) {
+            instanteBotonPulsado = false
+            tHistorial = tvHistorial.text.toString()
+        }
+        tvHistorial.text = StringBuilder().append(tHistorial).append(operation).toString()
+
+        opBotonPulsado = true
+        igualPulsado = false
     }
 
     private fun useNumberFormat(): DecimalFormat {
 
-        val symbols = DecimalFormatSymbols()
+        val symbols = DecimalFormatSymbols(Locale.US)
         symbols.decimalSeparator = ','
+        symbols.groupingSeparator = '.'
 
-        val format = DecimalFormat("#.##############")
+        val format = DecimalFormat()
+        format.maximumFractionDigits = 16
         format.decimalFormatSymbols = symbols
+        format.isGroupingUsed = true
 
         return format
     }
@@ -413,41 +418,7 @@ class MainActivity : AppCompatActivity() {
         return useNumberFormat().parse(number).toDouble()
     }
 
-    // Extension property provides similar mechanism.
-    // Note that you have to define a getter method on your property for this to work.
     private val Double.sqrt: Double get() = Math.sqrt(this)
-
-    private fun clearEntry(newNumber: Double = 0.0) {
-        historyInstantOperationText = ""
-
-        if (isEqualButtonClicked) {
-            currentOperation = INIT
-            historyText = ""
-        }
-
-        if (isInstantOperationButtonClicked) textViewHistoryText.text = StringBuilder().append(historyText).append(currentOperation).toString()
-
-        isInstantOperationButtonClicked = false
-        isFutureOperationButtonClicked = false
-        isEqualButtonClicked = false
-
-        currentNumber = newNumber
-        textViewCurrentNumber.text = formatDoubleToString(newNumber)
-    }
-
-/*
-    // Functions are defined using the “fun” keyword.
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        // Safe call operator ? added to the variable before invoking the property instructs the compiler to invoke the property only if the value isn't null.
-        when (item?.itemId) {
-            R.id.menu_item_history -> {
-                HistoryActionListDialogFragment.newInstance(historyActionList).show(getSupportFragmentManager(), "dialog")
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
-        }
-
-    }
 
     override fun onHistoryItemClicked(resultText: String) {
 
@@ -458,16 +429,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         Toast.makeText(applicationContext, getString(R.string.history_result) + resultText, Toast.LENGTH_SHORT).show()
-    } */
+    }
 
-    // Extension function created to add special behaviour to our Activity.
-    // Here keyword lazy means it won’t be initialised right away but the first time the value is actually needed.
     fun <T : View> Activity.bind(@IdRes idRes: Int): Lazy<T> {
         // Function will be called only by the main thread to improve performance.
         return lazy(LazyThreadSafetyMode.NONE) { findViewById<T>(idRes) }
     }
 
-    companion object {
-        const val NAN = "NaN"
-    }
 }
