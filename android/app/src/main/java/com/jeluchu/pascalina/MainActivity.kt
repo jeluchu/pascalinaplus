@@ -251,7 +251,7 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         // Safe call operator ? added to the variable before invoking the property instructs the compiler to invoke the property only if the value isn't null.
         when (item?.itemId) {
-            R.id.history -> {
+            R.id.historial -> {
                 HistoryActionListDialogFragment.newInstance(listaAccionHistorial).show(supportFragmentManager, "dialog")
                 return true
             }
@@ -259,6 +259,11 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
                 val i = Intent(this, InfoActivity::class.java)
                 startActivity(i)
             }
+            /*
+            R.id.ajustes -> {
+                val i = Intent(this, SettingsActivity::class.java)
+                startActivity(i)
+            } */
             else -> return super.onOptionsItemSelected(item)
         }
         return true
