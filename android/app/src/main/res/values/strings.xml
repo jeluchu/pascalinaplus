@@ -4,6 +4,7 @@
     <string name="history">Historial: </string>
     <string name="clear_history">Limpiar historial</string>
     <string name="history_result">"Resultado del historial: "</string>
-    <string name="no_history">"Aún no hay nada"</string>
+    <string name="no_history">"Aún no hay datos"</string>
     <string name="history_cleared">¡Historial limpiado!</string>
+    <string name="historial">Historial</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.jeluchu.pascalina
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.v7.app.AppCompatActivity
@@ -31,7 +32,6 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
     private val botonResta: Button by bind(R.id.btn_minus)
     private val botonSuma: Button by bind(R.id.btn_plus)
     private val botonIgual: Button by bind(R.id.btn_equals)
-    private val botonMasMenos: Button by bind(R.id.btn_minus)
     private val botonComa: Button by bind(R.id.btn_decimal)
 
     private val tvHistorial: TextView by bind(R.id.formula)
@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
 
     private var numActual: Double = 0.0 // Value can be changed.
     private var resActual: Double = 0.0
-    private var memoria: Double = 0.0
 
     private var tHistorial = "" // Recognize type of variable without declaring it.
     private var historialOpTexto = ""
@@ -81,9 +80,7 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
     private val PORCENTAJE = ""
     private val RAIZ = "√"
     private val POTENCIA = "pow"
-    private val FRACCION = "1/"
 
-    private val NEGATIVO = "negate"
     private val COMA = ","
     private val IGUAL = " = "
 
@@ -111,67 +108,67 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
     private fun declararBotones(){
 
         button0.setOnClickListener {
-            onNumberButtonClick(CERO)
+            numPulsado(CERO)
         }
         button1.setOnClickListener {
-            onNumberButtonClick(UNO)
+            numPulsado(UNO)
         }
         button2.setOnClickListener {
-            onNumberButtonClick(DOS)
+            numPulsado(DOS)
         }
         button3.setOnClickListener {
-            onNumberButtonClick(TRES)
+            numPulsado(TRES)
         }
         button4.setOnClickListener {
-            onNumberButtonClick(CUATRO)
+            numPulsado(CUATRO)
         }
         button5.setOnClickListener {
-            onNumberButtonClick(CINCO)
+            numPulsado(CINCO)
         }
         button6.setOnClickListener {
-            onNumberButtonClick(SEIS)
+            numPulsado(SEIS)
         }
         button7.setOnClickListener {
-            onNumberButtonClick(SIETE)
+            numPulsado(SIETE)
         }
         button8.setOnClickListener {
-            onNumberButtonClick(OCHO)
+            numPulsado(OCHO)
         }
         button9.setOnClickListener {
-            onNumberButtonClick(NUEVE)
+            numPulsado(NUEVE)
         }
 
         botonDivision.setOnClickListener {
-            onFutureOperationButtonClick(DIVISION)
+            operacionBasica(DIVISION)
         }
 
         botonMultiplicacion.setOnClickListener {
-            onFutureOperationButtonClick(MULTIPLICACION)
+            operacionBasica(MULTIPLICACION)
         }
 
         botonResta.setOnClickListener {
-            onFutureOperationButtonClick(RESTA)
+            operacionBasica(RESTA)
         }
 
         botonSuma.setOnClickListener {
-            onFutureOperationButtonClick(SUMA)
+            operacionBasica(SUMA)
         }
 
         botonPorcentaje.setOnClickListener {
-            onInstantOperationButtonClick(PORCENTAJE)
+            calcularOpInstant(PORCENTAJE)
         }
 
         botonRaiz.setOnClickListener {
-            onInstantOperationButtonClick(RAIZ)
+            calcularOpInstant(RAIZ)
         }
 
         botonPotencia.setOnClickListener {
-            onInstantOperationButtonClick(POTENCIA)
+            calcularOpInstant(POTENCIA)
         }
 
     }
 
-    // BORRAR CARACTERES (1 A 1 / TODO)
+    // BORRAR CARACTERES (1 A 1 / COMPLETO)
     private fun limpiarOperaciones() {
 
         // PULSACIÓN CORTA
@@ -250,18 +247,24 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
         return true
     }
 
+    // EVENTOS DE OPCIONES DEL MENÚ
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         // Safe call operator ? added to the variable before invoking the property instructs the compiler to invoke the property only if the value isn't null.
         when (item?.itemId) {
             R.id.history -> {
-                HistoryActionListDialogFragment.newInstance(listaAccionHistorial).show(getSupportFragmentManager(), "dialog")
+                HistoryActionListDialogFragment.newInstance(listaAccionHistorial).show(supportFragmentManager, "dialog")
                 return true
+            }
+            R.id.informacion -> {
+                val i = Intent(this, InfoActivity::class.java)
+                startActivity(i)
             }
             else -> return super.onOptionsItemSelected(item)
         }
-
+        return true
     }
 
+    // CALCULAR OPCIONES BÁSICAS
     private fun calcularResultado(): String {
 
         when (opActual) {
@@ -288,7 +291,8 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
         return StringBuilder().append(tHistorial).append(IGUAL).append(formatDoubleToString(resActual)).toString()
     }
 
-    private fun onInstantOperationButtonClick(operation: String) {
+    // CALCULAR OPCIONES INSTANTÁNEAS
+    private fun calcularOpInstant(operation: String) {
 
         var valorActual: String = tvResultado.text.toString()
         var numOpActual: Double = formatStringToDouble(valorActual)
@@ -302,8 +306,7 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
             }
 
             RAIZ -> numOpActual = numOpActual.sqrt
-            POTENCIA -> numOpActual = numOpActual * numOpActual
-            //FRACTION -> thisOperationNumber = 1 / thisOperationNumber
+            POTENCIA -> numOpActual *= numOpActual
         }
 
         if (instanteBotonPulsado) {
@@ -348,8 +351,9 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
         }
     }
 
+    // EVENTO AL PULSAR UN NÚMERO
     @Throws(IllegalArgumentException::class)
-    private fun onNumberButtonClick(number: String, isHistory: Boolean = false) {
+    private fun numPulsado(number: String, isHistory: Boolean = false) {
 
         var valorActual: String = tvResultado.text.toString()
 
@@ -358,7 +362,7 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
         try {
             numActual = formatStringToDouble(valorActual)
         } catch (e: ParseException) {
-            throw IllegalArgumentException("String must be number.")
+            throw IllegalArgumentException("El string debe ser un número")
         }
 
         tvResultado.text = valorActual
@@ -378,7 +382,8 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
         igualPulsado = false
     }
 
-    private fun onFutureOperationButtonClick(operation: String) {
+    // REALIZACIÓN DE OPERACIONES BÁSICAS
+    private fun operacionBasica(operation: String) {
 
         if (!opBotonPulsado && !igualPulsado) {
             calcularResultado()
@@ -396,7 +401,8 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
         igualPulsado = false
     }
 
-    private fun useNumberFormat(): DecimalFormat {
+    // FORMATO DE LOS DECIMALES
+    private fun numFormato(): DecimalFormat {
 
         val symbols = DecimalFormatSymbols(Locale.US)
         symbols.decimalSeparator = ','
@@ -410,20 +416,24 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
         return format
     }
 
+    // CONVERSIÓN DE DOUBLE A STRING
     private fun formatDoubleToString(number: Double): String {
-        return useNumberFormat().format(number)
+        return numFormato().format(number)
     }
 
+    // CONVERSIÓN DE STRING A DOUBLE
     private fun formatStringToDouble(number: String): Double {
-        return useNumberFormat().parse(number).toDouble()
+        return numFormato().parse(number).toDouble()
     }
 
+    // RAÍZ CUADRADA OPCIONES
     private val Double.sqrt: Double get() = Math.sqrt(this)
 
+    // HISTORIAL TOAST
     override fun onHistoryItemClicked(resultText: String) {
 
         try {
-            onNumberButtonClick(resultText, true)
+            numPulsado(resultText, true)
         } catch (e: IllegalArgumentException) {
             return
         }
@@ -431,8 +441,9 @@ class MainActivity : AppCompatActivity(), HistoryActionListDialogFragment.Listen
         Toast.makeText(applicationContext, getString(R.string.history_result) + resultText, Toast.LENGTH_SHORT).show()
     }
 
-    fun <T : View> Activity.bind(@IdRes idRes: Int): Lazy<T> {
-        // Function will be called only by the main thread to improve performance.
+    private fun <T : View> Activity.bind(@IdRes idRes: Int): Lazy<T> {
+
+        // LLAMADA ÚNICAMENTE POR EL HILO PRINCIPAL
         return lazy(LazyThreadSafetyMode.NONE) { findViewById<T>(idRes) }
     }
 

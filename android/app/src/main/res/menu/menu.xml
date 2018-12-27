@@ -11,7 +11,7 @@
         android:title="Ajustes"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/about"
+        android:id="@+id/informacion"
         android:title="Acerca de"
         app:showAsAction="never"/>
 </menu>

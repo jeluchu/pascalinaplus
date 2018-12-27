@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="viewEnd"
+        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         tools:textView="9 + 2 - 1 × 10 = " />
 
@@ -26,6 +27,8 @@
         android:layout_height="wrap_content"
         android:textAlignment="viewEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         tools:textView="100" />
 
 </LinearLayout>
